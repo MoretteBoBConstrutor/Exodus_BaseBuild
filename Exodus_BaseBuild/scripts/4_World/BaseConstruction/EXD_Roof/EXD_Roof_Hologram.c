@@ -1,0 +1,1 @@
+class EXD_Roof_Hologram extends ItemBase{}

@@ -1,0 +1,1 @@
+class EXD_Roof_Delta_Hologram extends ItemBase{}

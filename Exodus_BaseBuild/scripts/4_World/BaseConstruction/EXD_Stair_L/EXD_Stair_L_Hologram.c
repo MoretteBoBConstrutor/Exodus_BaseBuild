@@ -1,0 +1,1 @@
+class EXD_Stair_L_Hologram extends ItemBase{}

@@ -1,0 +1,1 @@
+class EXD_Gate_Ramp_Hologram extends ItemBase{}

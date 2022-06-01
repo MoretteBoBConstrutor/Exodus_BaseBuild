@@ -1,0 +1,1 @@
+class EXD_Pillar_Hologram extends ItemBase{}

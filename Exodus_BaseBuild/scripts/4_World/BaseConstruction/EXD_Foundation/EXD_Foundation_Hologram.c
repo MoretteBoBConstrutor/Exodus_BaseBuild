@@ -1,0 +1,1 @@
+class EXD_Foundation_Hologram extends ItemBase{}

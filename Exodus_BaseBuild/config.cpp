@@ -1,0 +1,3322 @@
+class CfgPatches
+{
+	class Exodus_BaseBuild
+	{
+		units[]={};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]={"DZ_Data","DZ_Gear_Camping","DZ_Scripts","DZ_Gear_Tools","DZ_Gear_Containers","DZ_Weapons_Melee","DZ_Gear_Medical","DZ_Gear_Consumables","DZ_Weapons_Melee_Blade"};
+	};
+};
+
+class CfgMods
+{
+	class Exodus_BaseBuild
+	{
+		type = "mod";
+		credits = "ProjectBR";
+		author = "Morette|Zoomoon";
+		dir = "Exodus_BaseBuild";
+		name = "Exodus_BaseBuild";
+		dependencies[] = {"Game","World","Mission"};
+		class defs
+		{
+			class gameScriptModule
+			{
+				value = "";
+				files[] = {"Exodus_BaseBuild/Scripts/3_Game"};
+			};
+			class worldScriptModule
+			{
+				value = "";
+				files[] = {"Exodus_BaseBuild/Scripts/4_World"};
+			};
+			class missionScriptModule
+			{
+				value = "";
+				files[] = {"Exodus_BaseBuild/Scripts/5_Mission"};
+			};
+		};
+	};
+};
+class CfgVehicles
+{
+	class Fence;
+	class Inventory_Base;
+	class Container_Base;
+	class EXD_BaseKit: Inventory_Base
+	{
+		scope = 0;
+		displayName = "ClipBoard Base";
+		descriptionShort = "Projeto de construção de base";
+		isMeleeWeapon = 0;
+		weight = 10000;
+		absorbency = 0;
+		rotationFlags = 2;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		model = "\Exodus_BaseBuild\Data\Models\ClipBoard\EXD_Clipboard.p3d";
+		hiddenSelections[] = {"blueprint"};
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\blueprint_co.paa"};
+	};
+	class EXD_Wall_Base: Inventory_Base
+	{
+		scope = 0;
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints = 9999990;
+				};
+			};
+			class GlobalArmor
+			{
+				class Projectile
+				{
+					class Health
+					{
+						damage = 0;
+					};
+					class Blood
+					{
+						damage = 0;
+					};
+					class Shock
+					{
+						damage = 0;
+					};
+				};
+				class FragGrenade
+				{
+					class Health
+					{
+						damage = 0;
+					};
+					class Blood
+					{
+						damage = 0;
+					};
+					class Shock
+					{
+						damage = 0;
+					};
+				};
+			};
+		};
+	};
+	
+	class EXD_BB_Kit_Wall: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Wall Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Parede_co.paa"};
+	};
+	class EXD_Wall_Hologram: EXD_BB_Kit_Wall
+	{
+		scope = 2;
+		displayName = "Wall Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Wall\EXD_SimpleWall_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Wall_Window: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Window Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Janela_co.paa"};
+	};
+	class EXD_Wall_Window_Hologram: EXD_BB_Kit_Wall_Window
+	{
+		scope = 2;
+		displayName = "Window Wall Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Wall_W\EXD_Wall_W_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Floor: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Floor Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		minPlacingDist = 8;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Piso_co.paa"};
+	};
+	class EXD_Floor_Hologram: EXD_BB_Kit_Floor
+	{
+		scope = 2;
+		displayName = "Floor Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Floor\EXD_Floor_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+	
+	class EXD_BB_Kit_Floor_Delta: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Delta Floor Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		minPlacingDist = 8;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Piso_D_co.paa"};
+	};
+	class EXD_Floor_Delta_Hologram: EXD_BB_Kit_Floor_Delta
+	{
+		scope = 2;
+		displayName = "Delta Floor Hologram";
+		descriptionShort = "Volta Rapariga";
+		model = "\Exodus_BaseBuild\Data\Models\Floor_D\EXD_Floor_D_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Floor_Hatch: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Floor Hatch Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		minPlacingDist = 8;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Piso_co.paa"};
+	};
+	class EXD_Floor_Hatch_Hologram: EXD_BB_Kit_Floor_Hatch
+	{
+		scope = 2;
+		displayName = "Floor Hatch Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Floor_H\EXD_FloorHatch_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Door: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Door Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Porta_co.paa"};
+	};
+	class EXD_Door_Hologram: EXD_BB_Kit_Door
+	{
+		scope = 2;
+		displayName = "Door Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Door\EXD_SimpleDoor_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+	
+	class EXD_BB_Kit_Double_Door: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Double Door Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Porta_dupla_co.paa"};
+	};
+	class EXD_Double_Door_Hologram: EXD_BB_Kit_Double_Door
+	{
+		scope = 2;
+		displayName = "Double Door Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Door_Double\EXD_Door_Double_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_GateRamp: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Gate Ramp Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Porta_co.paa"};
+	};
+	class EXD_Gate_Ramp_Hologram: EXD_BB_Kit_GateRamp
+	{
+		scope = 2;
+		displayName = "Gate Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Gate_Ramp\EXD_Gate_Ramp_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Roof: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Roof Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		minPlacingDist = 8;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Teto_co.paa"};
+	};
+	class EXD_Roof_Hologram: EXD_BB_Kit_Roof
+	{
+		scope = 2;
+		displayName = "Roof Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Roof\EXD_Roof_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+	
+	class EXD_BB_Kit_Roof_Delta: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Delta Roof Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		minPlacingDist = 8;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Teto_D_co.paa"};
+	};
+	class EXD_Roof_Delta_Hologram: EXD_BB_Kit_Roof_Delta
+	{
+		scope = 2;
+		displayName = "Delta Roof Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Roof_D\EXD_Roof_D_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+	
+	class EXD_BB_Kit_Roof_Hatch: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Roof Hatch Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		minPlacingDist = 8;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Piso_co.paa"};
+	};
+	class EXD_Roof_Hatch_Hologram: EXD_BB_Kit_Roof_Hatch
+	{
+		scope = 2;
+		displayName = "Roof Hatch Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Roof_H\EXD_RoofHatch_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Stair_Mini: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Mini Stair Kit";
+		descriptionShort = "A folded wooden ladder.";
+		model = "\Exodus_BaseBuild\Data\Models\Stair_Mini\EXD_Stair_Mini_Kit.p3d";
+		isMeleeWeapon = 0;
+		weight = 30000;
+		absorbency = 0;
+		rotationFlags = 0;
+		itemSize[] = {5,5};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		physLayer = "item_small";
+	};
+	class EXD_Stair_Mini: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Mini Stair";
+		descriptionShort = "Use this to Build a Roof.";
+		model = "\Exodus_BaseBuild\Data\Models\Stair_Mini\EXD_Stair_Mini.p3d";
+		handheld = "true";
+		weight = 5000;
+		heavyItem = 1;
+		itemSize[] = {18,25};
+		itemsCargoSize[] = {0,0};
+		canBeDigged = 0;
+		isMeleeWeapon = 0;
+		quantityBar = 1;
+		carveNavmesh = 1;
+		placement = "ForceSlopeOnTerrain";
+		overrideDrawArea = "8.0";
+		physLayer = "item_large";
+		destroyOnEmpty = 0;
+		varQuantityDestroyOnMin = 0;
+		allowOwnedCargoManipulation = 1;
+		itemBehaviour = 0;
+		randomQuantity = 2;
+		minPlacingDist = 10;
+		rotationFlags = 0;
+		attachments[] = {};
+		lootTag[] = {"Work"};
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Stair_L: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Stair L Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		isMeleeWeapon = 0;
+		weight = 30000;
+		absorbency = 0;
+		rotationFlags = 2;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Escada_L_co.paa"};
+	};
+	class EXD_Stair_L_Hologram: EXD_BB_Kit_Stair_L
+	{
+		scope = 2;
+		displayName = "Stair L Hologram";
+		descriptionShort = "BR";
+		model = "\Exodus_BaseBuild\Data\Models\Stair_L\EXD_Stair_L_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Pillar: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Pillar Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		isMeleeWeapon = 0;
+		weight = 30000;
+		absorbency = 0;
+		rotationFlags = 2;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Pilar_co.paa"};
+	};
+	class EXD_Pillar_Hologram: EXD_BB_Kit_Pillar
+	{
+		scope = 2;
+		displayName = "Pillar Hologram";
+		descriptionShort = "BR";
+		model = "\Exodus_BaseBuild\Data\Models\Pillar\EXD_Pillar_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		lootCategory = "Tents";
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	class EXD_BB_Kit_Foundation: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Wood Foundation Kit";
+		descriptionShort = "Press B while holding the kit to toggle snapping. Press K to target the base part you want. Press F to cycle through the snap points.";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		minPlacingDist = 8;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Piso_co.paa"};
+	};
+	class EXD_Foundation_Hologram: EXD_BB_Kit_Foundation
+	{
+		scope = 2;
+		displayName = "Foundation Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\Foundation\EXD_Foundation_Hologram.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
+
+	//Admin Tool
+	class Hatchet;
+	class EXD_Hammer_Admin: Hatchet
+	{
+		displayName="Admin";
+		descriptionShort="Tome cuidado, os itens contruidos por essa ferramenta geram problemas de colisao com o carros. Odiamos Abusers";
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=10000;
+				};
+			};
+		};
+	};
+
+	class EXD_Brourette: Container_Base
+	{
+		displayName="Brourette";
+		descriptionShort="Use para estocar iten de construçao";
+		scope=2;
+		model="\Exodus_BaseBuild\Data\Models\Item_Brourette\EXD_Brourette.p3d";
+		hologramMaterial="EXD_Brourette";
+		hologramMaterialPath="\Exodus_BaseBuild\Data\Models\Item_Brourette";
+		slopeTolerance=0.40;
+		yawPitchRollLimit[]={45,45,45};
+		weight=10000;
+		itemBehaviour=0;
+		carveNavmesh=1;
+		canBeDigged=1;
+		rotationFlags=2;
+		itemSize[]={10,4};
+		physLayer = "item_large";
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};   
+		class Cargo
+		{
+			itemsCargoSize[]={8,4};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=1;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=10;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+		};
+		class AnimationSources
+		{
+			class ShowLog
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class ShowPlank
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+		};
+	};
+
+
+
+	/* class EXD_Wall: EXD_Wall_Base
+	{
+		scope = 2;
+		displayName = "Wall";
+		descriptionShort = "Wood Wall.";
+		model = "\Exodus_BaseBuild\Data\Models\Wall\EXD_SimpleWall.p3d";
+		attachments[] = {"Wall_Barbedwire_1","Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
+		hybridAttachments[] = {"Wall_BarbedWire_1"};
+		mountables[] = {"Wall_BarbedWire_1"};
+		class GUIInventoryAttachmentsProps
+		{
+			class Attachments
+			{
+				name = "Attachments";
+				description = "";
+				attachmentSlots[] = {"Wall_Barbedwire_1"};
+				icon = "cat_bb_attachments";
+				selection = "exd_wall_t1";
+			};
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "wall_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Material_L1_WoodenLogs: AnimSourceHidden{};
+			class Material_WoodenPlanks: AnimSourceHidden{};
+			class Material_MetalSheets: AnimSourceHidden{};
+			class Wall_Barbedwire_1: AnimSourceHidden{};
+			class Wall_Barbedwire_1_Mounted: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_wall_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class wall_build
+			{
+				class exd_wall_t1
+				{
+					name = "Wall | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+				    {
+				    	class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+				    };
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_wall_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						transferToGlobalCoef=0;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+		
+	}; */
+	/* class EXD_Wall_Window: EXD_Wall_Base
+	{
+		scope = 2;
+		displayName = "Window";
+		descriptionShort = "Wood Window";
+		model = "\Exodus_BaseBuild\Data\Models\Wall_W\EXD_Wall_W.p3d";
+		attachments[] = {"Wall_Barbedwire_1","Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
+		hybridAttachments[] = {"Wall_BarbedWire_1"};
+		mountables[] = {"Wall_BarbedWire_1"};
+		class GUIInventoryAttachmentsProps
+		{
+			class Attachments
+			{
+				name = "Attachments";
+				description = "";
+				attachmentSlots[] = {"Wall_Barbedwire_1"};
+				icon = "cat_bb_attachments";
+				selection = "exd_wall_w_t1";
+			};
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "wall_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Material_L1_WoodenLogs: AnimSourceHidden{};
+			class Material_WoodenPlanks: AnimSourceHidden{};
+			class Material_MetalSheets: AnimSourceHidden{};
+			class Wall_Barbedwire_1: AnimSourceHidden{};
+			class Wall_Barbedwire_1_Mounted: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_wall_w_t1: AnimSourceHidden{};
+			class Exd_wall_w_frame_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class wall_build
+			{
+				class exd_wall_w_t1
+				{
+					name = "Wall | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+				    {
+				    	class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+				    };
+				};
+				class exd_wall_w_frame_t1
+				{
+					name = "Window Frame | T1 |";
+					id = 2;
+					required_parts[] = {"exd_wall_w_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+				    {
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+				    };
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_wall_w_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_w_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_wall_w_frame_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_w_frame_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	}; */
+	/* class EXD_Floor: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Floor";
+		descriptionShort = "Wood Floor";
+		model = "\Exodus_BaseBuild\Data\Models\Floor\EXD_Floor.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "floor_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_Floor_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class floor_build
+			{
+				class exd_floor_t1
+				{
+					name = "Floor | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_floor_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floor_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	}; */
+	/* class EXD_Floor_Delta: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Floor D";
+		descriptionShort = "Floor Delta.";
+		model = "\Exodus_BaseBuild\Data\Models\Floor_D\EXD_Floor_D.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "floor_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_floor_d_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class floor_build
+			{
+				class exd_floor_d_t1
+				{
+					name = "Delta Floor | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_floor_d_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floor_d_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	}; */
+	/* class EXD_Floor_Hatch: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Floor Hatch";
+		descriptionShort = "Wood Floor";
+		model = "\Exodus_BaseBuild\Data\Models\Floor_H\EXD_FloorHatch.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		attachments[] = {"Att_CombinationLock","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Attachments
+			{
+				name = "Attachments";
+				description = "";
+				attachmentSlots[] = {"Att_CombinationLock"};
+				icon = "cat_bb_attachments";
+				selection = "floor_build";
+			};
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "floor_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Hologram: AnimSourceHidden{};
+			class Exd_floorh_t1: AnimSourceHidden{};
+			class Exd_floorh_door1_t1: AnimSourceHidden{};
+			class Exd_floorh_door1_t1_Rotate: AnimRotate{};
+			class Exd_floorh_door2_t1: AnimSourceHidden{};
+			class Exd_floorh_door2_t1_Rotate: AnimRotate{};
+			class Wall_Interact_Rotate: AnimRotate{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class floor_build
+			{
+				class exd_floorh_t1
+				{
+					name = "Floor | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 12;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 20;
+						};
+					};
+					
+				};
+				class exd_floorh_door1_t1
+				{
+					name = "Door P1 | T1 |";
+					is_gate = 1;
+					id = 3;
+					required_parts[] = {"exd_floorh_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 4;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 8;
+						};
+					};
+				};
+				class exd_floorh_door2_t1
+				{
+					name = "Door P2 | T1 |";
+					is_gate = 1;
+					id = 4;
+					required_parts[] = {"exd_floorh_door1_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 4;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 8;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_floorh_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_floorh_door1_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_door1_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_floorh_door2_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_door2_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	}; */
+	/* class EXD_Door: EXD_Wall_Base
+	{
+		scope = 2;
+		displayName = "Door";
+		descriptionShort = "Wood Door.";
+		model = "\Exodus_BaseBuild\Data\Models\Door\EXD_SimpleDoor.p3d";
+		attachments[] = {"Att_CombinationLock","Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Attachments
+			{
+				name = "Attachments";
+				description = "";
+				attachmentSlots[] = {"Att_CombinationLock"};
+				icon = "cat_bb_attachments";
+				selection = "door_build";
+			};
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "door_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Material_L1_WoodenLogs: AnimSourceHidden{};
+			class Material_WoodenPlanks: AnimSourceHidden{};
+			class Material_MetalSheets: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Wall_Camonet_Gate: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_wall_d_t1: AnimSourceHidden{};
+			class Exd_door_t1: AnimSourceHidden{};
+			class Exd_door_t1_Rotate: AnimRotate{};
+			class Wall_Interact_Rotate: AnimRotate{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class door_build
+			{
+				class exd_wall_d_t1
+				{
+					name = "Wall | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+					};
+					
+				};
+				class exd_door_t1
+				{
+					name = "Door | T1 |";
+					is_gate = 1;
+					id = 3;
+					required_parts[] = {"exd_wall_d_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_wall_d_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_d_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_door_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_door_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	};
+ */
+	/* class EXD_Double_Door: EXD_Wall_Base
+	{
+		scope = 2;
+		displayName = "Double Door";
+		descriptionShort = "Wood double door.";
+		model = "\Exodus_BaseBuild\Data\Models\Door_Double\EXD_Door_Double.p3d";
+		attachments[] = {"Att_CombinationLock","Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Attachments
+			{
+				name = "Attachments";
+				description = "";
+				attachmentSlots[] = {"Att_CombinationLock"};
+				icon = "cat_bb_attachments";
+				selection = "door_build";
+			};
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "door_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Material_L1_WoodenLogs: AnimSourceHidden{};
+			class Material_WoodenPlanks: AnimSourceHidden{};
+			class Material_MetalSheets: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Wall_Camonet_Gate: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_wall_double_door_t1: AnimSourceHidden{};
+			class Exd_d_d_l_t1: AnimSourceHidden{};
+			class Exd_d_d_r_t1: AnimSourceHidden{};
+			class Exd_d_d_l_Rotate: AnimRotate{};
+			class Exd_d_d_r_Rotate: AnimRotate{};
+			class Wall_Interact_Rotate: AnimRotate{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class door_build
+			{
+				class exd_wall_double_door_t1
+				{
+					name = "Wall | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+					};
+					
+				};
+				class exd_d_d_r_t1
+				{
+					name = "Door R | T1 |";
+					is_gate = 1;
+					id = 2;
+					required_parts[] = {"exd_wall_double_door_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 5;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 9;
+						};
+					};
+					
+				};
+				class exd_d_d_l_t1
+				{
+					name = "Door L | T1 |";
+					is_gate = 1;
+					id = 3;
+					required_parts[] = {"exd_wall_double_door_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 5;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 9;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_wall_double_door_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_double_door_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_d_d_r_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_d_d_r_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_d_d_l_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_d_d_l_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	};
+ */
+	/* class EXD_Gate_Ramp: EXD_Wall_Base
+	{
+		scope = 2;
+		displayName = "Gate Ramp";
+		descriptionShort = "|-_-|";
+		model = "\Exodus_BaseBuild\Data\Models\Gate_Ramp\EXD_Gate_Ramp.p3d";
+		attachments[] = {"Att_CombinationLock","Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Attachments
+			{
+				name = "Attachments";
+				description = "";
+				attachmentSlots[] = {"Att_CombinationLock"};
+				icon = "cat_bb_attachments";
+				selection = "door_build";
+			};
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "door_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Material_L1_WoodenLogs: AnimSourceHidden{};
+			class Material_WoodenPlanks: AnimSourceHidden{};
+			class Material_MetalSheets: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Wall_Camonet_Gate: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_wall_d_t1: AnimSourceHidden{};
+			class Exd_door_t1: AnimSourceHidden{};
+			class Exd_door_t1_Rotate: AnimRotate{};
+			class Wall_Interact_Rotate: AnimRotate{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class door_build
+			{
+				class exd_wall_d_t1
+				{
+					name = "Frame | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+					};
+					
+				};
+				class exd_door_t1
+				{
+					name = "Gate Ramp | T1 |";
+					is_gate = 1;
+					id = 3;
+					required_parts[] = {"exd_wall_d_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_wall_d_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_d_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_door_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_door_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	};
+ */
+	/* class EXD_Roof: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Roof";
+		descriptionShort = "Wood Roof.";
+		model = "\Exodus_BaseBuild\Data\Models\Roof\EXD_Roof.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		attachments[] = {"Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		class GUIInventoryAttachmentsProps
+		{
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "roof_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Material_MetalSheets: AnimSourceHidden{};
+			class Wall_Barbedwire_1: AnimSourceHidden{};
+			class Wall_Barbedwire_2: AnimSourceHidden{};
+			class Wall_Barbedwire_1_Mounted: AnimSourceHidden{};
+			class Wall_Barbedwire_2_Mounted: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_roof_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class roof_build
+			{
+				class exd_roof_t1
+				{
+					name = "Roof | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_roof_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_roof_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	};
+ */
+	/* class EXD_Roof_Delta: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Roof D";
+		descriptionShort = "Roof Delta";
+		model = "\Exodus_BaseBuild\Data\Models\Roof_D\EXD_Roof_D.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		class GUIInventoryAttachmentsProps
+		{
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "roof_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Material_Nails: AnimSourceHidden{};
+			class Material_MetalSheets: AnimSourceHidden{};
+			class Wall_Barbedwire_1: AnimSourceHidden{};
+			class Wall_Barbedwire_2: AnimSourceHidden{};
+			class Wall_Barbedwire_1_Mounted: AnimSourceHidden{};
+			class Wall_Barbedwire_2_Mounted: AnimSourceHidden{};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_roof_d_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class roof_build
+			{
+				class exd_roof_d_t1
+				{
+					name = "Delta Roof | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_roof_d_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_roof_d_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	};
+ */
+	/* class EXD_Roof_Hatch: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Roof Hatch";
+		descriptionShort = "Wood Roof";
+		model = "\Exodus_BaseBuild\Data\Models\Roof_H\EXD_RoofHatch.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		attachments[] = {"Att_CombinationLock","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Attachments
+			{
+				name = "Attachments";
+				description = "";
+				attachmentSlots[] = {"Att_CombinationLock"};
+				icon = "cat_bb_attachments";
+				selection = "floor_build";
+			};
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "floor_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Hologram: AnimSourceHidden{};
+			class Exd_floorh_t1: AnimSourceHidden{};
+			class Exd_floorh_door1_t1: AnimSourceHidden{};
+			class Exd_floorh_door1_t1_Rotate: AnimRotate{};
+			class Exd_floorh_door2_t1: AnimSourceHidden{};
+			class Exd_floorh_door2_t1_Rotate: AnimRotate{};
+			class Wall_Interact_Rotate: AnimRotate{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class floor_build
+			{
+				class exd_floorh_t1
+				{
+					name = "Roof | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 12;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 20;
+						};
+					};
+					
+				};
+				class exd_floorh_door1_t1
+				{
+					name = "Door P1 | T1 |";
+					is_gate = 1;
+					id = 3;
+					required_parts[] = {"exd_floorh_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 4;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 8;
+						};
+					};
+				};
+				class exd_floorh_door2_t1
+				{
+					name = "Door P2 | T1 |";
+					is_gate = 1;
+					id = 4;
+					required_parts[] = {"exd_floorh_door1_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 4;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 8;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_floorh_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_floorh_door1_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_door1_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_floorh_door2_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_door2_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	};
+ */
+	/* class EXD_Stair_L: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Stair L";
+		descriptionShort = "A simple L Stair.";
+		model = "\Exodus_BaseBuild\Data\Models\Stair_L\EXD_Stair_L.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints = 9999990;
+				};
+			};
+			class GlobalArmor
+			{
+				class Projectile
+				{
+					class Health
+					{
+						damage = 0;
+					};
+					class Blood
+					{
+						damage = 0;
+					};
+					class Shock
+					{
+						damage = 0;
+					};
+				};
+				class FragGrenade
+				{
+					class Health
+					{
+						damage = 0;
+					};
+					class Blood
+					{
+						damage = 0;
+					};
+					class Shock
+					{
+						damage = 0;
+					};
+				};
+			};
+		};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "stair_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_stair_l_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class stair_build
+			{
+				class exd_stair_l_t1
+				{
+					name = "Stair L | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 20;
+						};
+					};
+				};
+			};
+		};
+	};
+ */
+	/* class EXD_Pillar: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Pillar";
+		descriptionShort = "Pillar.";
+		model = "\Exodus_BaseBuild\Data\Models\Pillar\EXD_Pillar.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints = 9999990;
+				};
+			};
+			class GlobalArmor
+			{
+				class Projectile
+				{
+					class Health
+					{
+						damage = 0;
+					};
+					class Blood
+					{
+						damage = 0;
+					};
+					class Shock
+					{
+						damage = 0;
+					};
+				};
+				class FragGrenade
+				{
+					class Health
+					{
+						damage = 0;
+					};
+					class Blood
+					{
+						damage = 0;
+					};
+					class Shock
+					{
+						damage = 0;
+					};
+				};
+			};
+		};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_L1_WoodenLogs"};
+				icon = "cat_bb_material";
+				selection = "pillar_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_pillar_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class pillar_build
+			{
+				class exd_pillar_t1
+				{
+					name = "Pillar | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+					};
+				};
+			};
+		};
+	};
+ */
+	/* class EXD_Foundation: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Foundation";
+		descriptionShort = "Wood Foundation";
+		model = "\Exodus_BaseBuild\Data\Models\Foundation\EXD_Foundation.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Deployed","Hologram"};
+		rotationFlags = 2;
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				icon = "cat_bb_material";
+				selection = "foundation_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Wall_Camonet: AnimSourceHidden{};
+			class Deployed: AnimSourceHidden{};
+			class Hologram: AnimSourceHidden{};
+			class Exd_foundation_t1: AnimSourceHidden{};
+			class Build_holo: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class foundation_build
+			{
+				class exd_foundation_t1
+				{
+					name = "Foundation | T1 |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+					};
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class exd_foundation_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_foundation_t1"};
+					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	};
+ */
+
+
+
+}; 
+
+/* 
+```fix
+EXD_BB_Kit_Wall
+EXD_BB_Kit_Wall_Window
+EXD_BB_Kit_Floor
+EXD_BB_Kit_Floor_Delta
+EXD_BB_Kit_Floor_Hatch
+EXD_BB_Kit_Door
+EXD_BB_Kit_Double_Door
+EXD_BB_Kit_GateRamp
+EXD_BB_Kit_Roof
+EXD_BB_Kit_Roof_Delta
+EXD_BB_Kit_Roof_Hatch
+EXD_BB_Kit_Stair_Mini
+EXD_BB_Kit_Stair_L
+EXD_BB_Kit_Pillar
+EXD_BB_Kit_Foundation
+```
+```
+EXD_Wall
+EXD_Wall_Window
+EXD_Floor
+EXD_Floor_Delta
+EXD_Floor_Hatch
+EXD_Door
+EXD_Double_Door
+EXD_Gate_Ramp
+EXD_Roof
+EXD_Roof_Delta
+EXD_Roof_Hatch
+EXD_Stair_Mini
+EXD_Stair_L
+EXD_Pillar
+EXD_Foundation
+``` */

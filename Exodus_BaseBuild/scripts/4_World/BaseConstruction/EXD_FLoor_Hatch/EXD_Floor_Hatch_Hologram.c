@@ -1,0 +1,1 @@
+class EXD_Floor_Hatch_Hologram extends ItemBase{}

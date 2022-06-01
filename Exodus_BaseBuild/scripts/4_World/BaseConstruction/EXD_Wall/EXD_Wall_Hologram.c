@@ -1,0 +1,1 @@
+class EXD_Wall_Hologram extends ItemBase{}
