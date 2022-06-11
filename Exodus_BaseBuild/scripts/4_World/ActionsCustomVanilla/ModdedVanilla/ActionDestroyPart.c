@@ -292,13 +292,13 @@ modded class ActionDestroyPart: ActionContinuousBase
 				{
 					base_building.AddHealth(zone_name,"Health",-(base_building.GetMaxHealth(zone_name,"")/DamageZoneLoopT1));
 
-					//Print("Dano Adicionado" + " "+ action_data.m_MainItem.GetDisplayName() +" "+ action_data.m_Player.GetIdentity().GetName() + " " + action_data.m_Player.GetPosition());
+					//Print("Dano Adicionado" + " "+ action_data.m_MainItem.GetDisplayName() +" "+ action_data.m_Player.GetIdentity().GetName() + " " + action_data.m_Player.GetPosition()); GetId()
 
 					if ( base_building.GetHealth(zone_name,"Health") < 1 )
 					{
 						construction.DestroyPartServer( action_data.m_Player, construction_part.GetPartName(), AT_DESTROY_PART );
 						NotificationSystem.SendNotificationToPlayerIdentityExtended(action_data.m_Player.GetIdentity(), 0.5, "BaseBuild", construction_part.GetName() + " " + "has been destroyed", Picture);
-						Print("Destroyed " + action_data.m_Target.GetObject().GetDisplayName() + " with " + action_data.m_MainItem.GetDisplayName() + " " + action_data.m_Player.GetIdentity().GetId() + " = " + action_data.m_Player.GetIdentity().GetPlainId() + " " + action_data.m_Player.GetPosition());
+						Print("Destroyed " + action_data.m_Target.GetObject().GetDisplayName() + " with " + action_data.m_MainItem.GetDisplayName() + " " + action_data.m_Player.GetIdentity().GetName() + " = " + action_data.m_Player.GetIdentity().GetPlainId() + " " + action_data.m_Player.GetPosition());
 					}
 				}
 				else

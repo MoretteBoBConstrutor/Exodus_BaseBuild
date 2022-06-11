@@ -11,10 +11,13 @@ class EXD_Hammer_Admin extends ToolBase
 		AddAction(ActionDestroyPart);
 		AddAction(ActionSawPlanks);
 		AddAction(ActionUnrestrainTarget);
+		//AddAction(ActionCreateUnderGroud);
 	}
 	
 	bool isExdAdminTool()
 	{
 		return true;
 	}
+
+
 }

@@ -19,6 +19,11 @@ modded class BaseBuildingBase
     {
         return false;
     }
+
+	bool IsUnderGroud()
+	{
+		return false;
+	}
 	
 
 	//Procure por HasProperDistance no arquivo fence.c la voce encontra essa varievel :D

@@ -104,6 +104,18 @@ modded class MissionGameplay
 				}
 			}
 		}
+		/* 
+			KC_SLASH  	= / 
+			KC_PERIOD 	= .
+			KC_J 	  	= j
+		*/
+		if ( key == KeyCode.KC_J ) 
+		{
+			if (item_in_hands.IsKindOf("EXD_BaseKit") || item_in_hands.GetType() == "FenceKit" || item_in_hands.GetType() == "WatchtowerKit" && item_in_hands != NULL)
+			{
+				MensageSend_R();
+			}
+        }
     }
 
 	override void OnUpdate(float timeslice)

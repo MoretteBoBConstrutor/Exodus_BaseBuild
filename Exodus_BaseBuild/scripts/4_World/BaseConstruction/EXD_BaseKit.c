@@ -19,6 +19,11 @@ class EXD_BaseKit extends ItemBase
 	{
 		return true;
 	}
+
+	bool IsUnderGroudProject()
+    {
+        return false;
+    }
 	
 	override void SetActions()
 	{

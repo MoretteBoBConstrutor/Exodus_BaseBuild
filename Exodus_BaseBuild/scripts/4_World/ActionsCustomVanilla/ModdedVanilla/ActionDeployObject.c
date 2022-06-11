@@ -1,5 +1,49 @@
 modded class ActionDeployObject
 {
+
+    override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
+	{
+		//Action not allowed if player has broken legs
+		if (player.GetBrokenLegs() == eBrokenLegs.BROKEN_LEGS)
+			return false;
+		
+        ItemBase item_in_hands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
+
+		//Client
+		if ( !GetGame().IsDedicatedServer() )
+		{
+			if ( player.IsPlacingLocal() )
+			{
+				if ( !player.GetHologramLocal().IsColliding() )
+				{
+					if ( item.CanBePlaced(player, player.GetHologramLocal().GetProjectionEntity().GetPosition()) )
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+        if (item_in_hands.GetType() == "EXD_BB_Kit_UnderGroud")
+        {
+			if ( player.IsPlacingLocal() )
+			{
+				string surface_type;
+				vector position;
+				position = player.GetHologramLocal().GetProjectionEntity().GetPosition();
+				
+				GetGame().SurfaceGetType3D( position[0], position[1], position[2], surface_type );
+				
+				if ( GetGame().IsSurfaceDigable(surface_type) )
+				{
+					return true;
+				}
+            }
+        }
+		//Server
+		return true;
+	}
+
     override void OnEndServer(ActionData action_data)
     {
         if ( action_data.m_MainItem.IsKindOf("EXD_BaseKit") )

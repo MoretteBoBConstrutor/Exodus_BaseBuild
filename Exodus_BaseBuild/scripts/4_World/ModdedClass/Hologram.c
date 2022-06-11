@@ -163,6 +163,7 @@ modded class Hologram
 			super.SetProjectionOrientation(orientation);
 		}
 	}
+
 	//Matematica para rotaçao do objeto, estudar novos meios de deixar suave
 	override vector GetProjectionRotation()
 	{
@@ -171,12 +172,12 @@ modded class Hologram
 	
 	override void AddProjectionRotation( float addition )
 	{	
-		m_Rotation[0] = m_Rotation[0] + addition;
+		m_Rotation[0] = m_Rotation[0] + (addition / Rotation_R);
 	}
 	
 	override void SubtractProjectionRotation( float subtraction )
 	{	
-		m_Rotation[0] = m_Rotation[0] - subtraction;
+		m_Rotation[0] = m_Rotation[0] - (subtraction / Rotation_R);
 	}
 
 	override bool IsFloating() 
@@ -185,5 +186,33 @@ modded class Hologram
 			return false;
 
 		return m_IsFloating;
+	}
+}
+
+int Rotation_R = 1;
+static bool sendMensage_R = false;
+static bool sendMensage_R()
+{
+	return sendMensage_R;
+}
+static void MensageSend_R()
+{
+    sendMensage_R = !sendMensage_R;
+	PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+	string Picture = "set:dayz_inventory image:paper";
+	if (sendMensage_R)
+	{
+
+		NotificationSystem.AddNotificationExtended(0.5, "BaseBuild", "Rotaçao lenta ativada", Picture);
+		//GetGame().GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "BaseBuild", "Rotaçao lenta ativada", "RED"));
+		Rotation_R = 6;
+		//Print("Rotation Change Test");
+	}
+	else
+	{
+		
+		NotificationSystem.AddNotificationExtended(0.5, "BaseBuild", "Rotaçao lenta desativada", Picture);
+		//GetGame().GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "BaseBuild", "Rotaçao lenta desativada", "RED"));
+		Rotation_R = 1;
 	}
 }

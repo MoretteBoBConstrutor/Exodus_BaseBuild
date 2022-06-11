@@ -491,24 +491,23 @@ class CfgVehicles
 		handheld = "true";
 		weight = 5000;
 		heavyItem = 1;
-		itemSize[] = {18,25};
+		itemSize[] = {25,25};
 		itemsCargoSize[] = {0,0};
 		canBeDigged = 0;
 		isMeleeWeapon = 0;
-		quantityBar = 1;
+		//quantityBar = 1;
 		carveNavmesh = 1;
 		placement = "ForceSlopeOnTerrain";
 		overrideDrawArea = "8.0";
 		physLayer = "item_large";
 		destroyOnEmpty = 0;
 		varQuantityDestroyOnMin = 0;
-		allowOwnedCargoManipulation = 1;
+		//allowOwnedCargoManipulation = 1;
 		itemBehaviour = 0;
-		randomQuantity = 2;
+		//randomQuantity = 2;
 		minPlacingDist = 10;
 		rotationFlags = 0;
 		attachments[] = {};
-		lootTag[] = {"Work"};
 		class GUIInventoryAttachmentsProps{};
 	};
 
@@ -684,6 +683,37 @@ class CfgVehicles
 		};
 	};
 
+	//UnderGroud
+	class EXD_BB_Kit_UnderGroud: EXD_BaseKit
+	{
+		scope = 2;
+		displayName = "Under Ground Project";
+		descriptionShort = "";
+		rotationFlags = 2;
+		isMeleeWeapon = 0;
+		weight = 300;
+		absorbency = 0;
+		itemSize[] = {2,2};
+		lootCategory = "Materials";
+		reversed = 0;
+		itemBehaviour = 2;
+		minPlacingDist = 8;
+		hiddenSelectionsTextures[] = {"\Exodus_BaseBuild\Data\Models\ClipBoard\textures\blueprint\Piso_co.paa"};
+	};
+	class EXD_UnderGroud_Hologram: EXD_BB_Kit_UnderGroud
+	{
+		scope = 2;
+		displayName = "Hologram";
+		descriptionShort = "xD";
+		model = "\Exodus_BaseBuild\Data\Models\UndergroudBase\Small\proxy_UnderGroudHolo.p3d";
+		overrideDrawArea = "3.0";
+		attachments[] = {};
+		carveNavmesh = 1;
+		placement = "ForceSlopeOnTerrain";
+		physLayer = "item_large";
+		rotationFlags = 2;
+		class GUIInventoryAttachmentsProps{};
+	};
 
 
 	/* class EXD_Wall: EXD_Wall_Base

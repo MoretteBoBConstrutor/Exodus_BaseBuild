@@ -60,7 +60,7 @@ class EXD_Base extends Fence
 	
 	override bool CanDisplayAttachmentCategory( string category_name )
 	{
-		if ( category_name == "Attachments" )
+		if ( category_name == "Attachments" || category_name == "Camonet")
 		{
 			if ( !HasBase() )
 			{
@@ -118,6 +118,37 @@ class EXD_Base extends Fence
 		return false;
 	}
 	
+	bool IsCamonet()
+	{
+		ItemBase materials_camonet;
+		int slot_id;
+		slot_id = InventorySlots.GetSlotIdFromString("Wall_Camonet");
+		materials_camonet = ItemBase.Cast( GetInventory().FindAttachment(slot_id) );
+		
+		string itemname = materials_camonet.GetType();
+		
+		if ( itemname == "CamoNet" )
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/* CamoNet exodus para textura diferente da camonet
+	bool IsCamonetExodus()
+	{
+		int slot_id;
+		slot_id = InventorySlots.GetSlotIdFromString("Wall_Camonet");
+		ItemBase materials_camonet = ItemBase.Cast( GetInventory().FindAttachment(slot_id) );
+		string itemname = materials_camonet.GetType();
+		if ( itemname == "CamoNetExodus" )
+		{
+			return true;
+		}
+		return false;
+	}
+	*/
+
 	//--- ATTACHMENT & CONDITIONS
 	override bool CanReceiveAttachment( EntityAI attachment, int slotId )
 	{
@@ -127,8 +158,6 @@ class EXD_Base extends Fence
 			if ( player )
 			{
 				ConstructionActionData construction_action_data = player.GetConstructionActionData();
-				
-				//reset action initiator
 				construction_action_data.SetActionInitiator( NULL );				
 			}
 		}
@@ -137,8 +166,7 @@ class EXD_Base extends Fence
 		{
 			return ( HasFullyConstructedGate() && !IsOpened() );
 		}
-		
-		//GateAttachmentConditions check
+
 		if ( !GateAttachmentConditions(slotId) )
 			return false;
 		
@@ -163,18 +191,68 @@ class EXD_Base extends Fence
 		}
 	}
 
+	void RefreshCamonet()
+	{
+		if (IsCamonet() == true)
+		{
+			if(HasBase())
+			{	
+				if(HasFullyConstructedGate())
+				{
+					SetAnimationPhase( "GateCamonet", 0 );
+					SetAnimationPhase( "WallCamonet", 0 );
+				}
+				else if(!HasFullyConstructedGate())
+				{
+					SetAnimationPhase( "WallCamonet", 0 );
+					SetAnimationPhase( "GateCamonet", 1 );
+				}
+			}
+		}
+		if (IsCamonet() == false)
+		{
+			SetAnimationPhase( "GateCamonet", 1 );
+			SetAnimationPhase( "WallCamonet", 1 );
+		}
+
+		/* if (IsCamonetExodus() == true)
+		{
+			if(HasBase())
+			{	
+				if(HasFullyConstructedGate())
+				{
+					SetAnimationPhase( "GateCamonetExodus", 0 );
+					SetAnimationPhase( "WallCamonetExodus", 0 );
+				}
+				else if(!HasFullyConstructedGate())
+				{
+					SetAnimationPhase( "WallCamonetExodus", 0 );
+					SetAnimationPhase( "GateCamonetExodus", 1 );
+				}
+			}
+		}
+		if (IsCamonetExodus() == false)
+		{
+			SetAnimationPhase( "GateCamonetExodus", 1 );
+			SetAnimationPhase( "WallCamonetExodus", 1 );
+		} */
+	}
+
+	
 	
 	override void EEItemAttached(EntityAI item, string slot_name)
 	{
 		CheckForHybridAttachments( item, slot_name );
 		UpdateVisuals();
 		RefreshBuildLocation();
+		RefreshCamonet();
 	}
 
 	override void EEItemDetached(EntityAI item, string slot_name)
 	{
 		UpdateVisuals();
 		RefreshBuildLocation();
+		RefreshCamonet();
 	}
 	
 	protected void OnSetSlotLock( int slotId, bool locked, bool was_locked )
@@ -230,6 +308,7 @@ class EXD_Base extends Fence
 			//GateAttachmentsSanityCheck();
 		
 		//update visuals (server)
+		RefreshCamonet();
 		UpdateVisuals();
 	}
 	
@@ -276,6 +355,7 @@ class EXD_Base extends Fence
 		}
 		
 		//update visuals (server)
+		RefreshCamonet();
 		UpdateVisuals();
 	}
 
@@ -285,7 +365,7 @@ class EXD_Base extends Fence
 		
 		//check gate state
 		ConstructionPart construction_part = GetConstruction().GetConstructionPart( part_name );
-		if ( GatePartConstruct() && construction_part.IsGate())
+		if ( GatePartConstruct() && construction_part.IsGate() /* && part_name != "exd_wall_w_door_t1" */ )
 		{
 			//drop regular attachments
 			HandleDropAttachment(GetBarbedWire1());
@@ -294,6 +374,12 @@ class EXD_Base extends Fence
 			if ( IsOpened() )
 				CloseFence();
 		}
+		/* if (part_name == "exd_wall_w_door_t1")
+		{
+			HandleDropAttachment(GetCombinationLock());
+		} */
+
+		RefreshCamonet();
 	}
 	
 	override void EEHealthLevelChanged(int oldLevel, int newLevel, string zone)

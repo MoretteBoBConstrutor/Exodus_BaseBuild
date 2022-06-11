@@ -28,7 +28,7 @@ class CfgVehicles
 			{
 				name = "Attachments";
 				description = "";
-				attachmentSlots[] = {"Wall_Barbedwire_1"};
+				attachmentSlots[] = {"Wall_Barbedwire_1","Wall_Camonet"};
 				icon = "cat_bb_attachments";
 				selection = "exd_wall_t1";
 			};
@@ -72,6 +72,7 @@ class CfgVehicles
 			class Hologram: AnimSourceHidden{};
 			class Exd_wall_t1: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
+			class WallCamonet: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -173,7 +174,7 @@ class CfgVehicles
 		displayName = "Window";
 		descriptionShort = "Wood Window";
 		model = "\Exodus_BaseBuild\Data\Models\Wall_W\EXD_Wall_W.p3d";
-		attachments[] = {"Wall_Barbedwire_1","Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
+		attachments[] = {"Wall_Barbedwire_1","Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets","Att_CombinationLock","Wall_Camonet"};
 		hybridAttachments[] = {"Wall_BarbedWire_1"};
 		mountables[] = {"Wall_BarbedWire_1"};
 		class GUIInventoryAttachmentsProps
@@ -182,7 +183,7 @@ class CfgVehicles
 			{
 				name = "Attachments";
 				description = "";
-				attachmentSlots[] = {"Wall_Barbedwire_1"};
+				attachmentSlots[] = {"Wall_Barbedwire_1","Att_CombinationLock","Wall_Camonet"};
 				icon = "cat_bb_attachments";
 				selection = "exd_wall_w_t1";
 			};
@@ -221,12 +222,14 @@ class CfgVehicles
 			class Material_MetalSheets: AnimSourceHidden{};
 			class Wall_Barbedwire_1: AnimSourceHidden{};
 			class Wall_Barbedwire_1_Mounted: AnimSourceHidden{};
-			class Wall_Camonet: AnimSourceHidden{};
 			class Deployed: AnimSourceHidden{};
 			class Hologram: AnimSourceHidden{};
 			class Exd_wall_w_t1: AnimSourceHidden{};
 			class Exd_wall_w_frame_t1: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
+			class Exd_wall_w_door_t1: AnimSourceHidden{};
+			class Exd_wall_w_door_t1_Rotate: AnimRotate{};
+			class WallCamonet: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -265,10 +268,37 @@ class CfgVehicles
 						};
 				    };
 				};
+				class exd_wall_w_door_t1
+				{
+					name = "Window | T1 |";
+					is_gate = 1;
+					id = 2;
+					required_parts[] = {"exd_wall_w_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+				    {
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+				    };
+				};
 				class exd_wall_w_frame_t1
 				{
 					name = "Window Frame | T1 |";
-					id = 2;
+					id = 3;
 					required_parts[] = {"exd_wall_w_t1"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
@@ -370,6 +400,34 @@ class CfgVehicles
 					componentNames[]=	 {"exd_wall_w_frame_t1"};
 					fatalInjuryCoef=-1;
 				};
+				class exd_wall_w_door_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_w_door_t1"};
+					fatalInjuryCoef=-1;
+				};
 			};
 		};
 	};
@@ -390,11 +448,19 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet"};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
 		{
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "floor_build";
+			};
 			class Materials
 			{
 				name = "Materials";
@@ -430,6 +496,7 @@ class CfgVehicles
 			class Hologram: AnimSourceHidden{};
 			class Exd_Floor_t1: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
+			class WallCamonet: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -539,11 +606,19 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet"};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
 		{
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "floor_build";
+			};
 			class Materials
 			{
 				name = "Materials";
@@ -579,6 +654,7 @@ class CfgVehicles
 			class Hologram: AnimSourceHidden{};
 			class Exd_floor_d_t1: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
+			class WallCamonet: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -961,6 +1037,14 @@ class CfgVehicles
 				icon = "cat_bb_attachments";
 				selection = "door_build";
 			};
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "door_build";
+			};
 			class Materials
 			{
 				name = "Materials";
@@ -1003,6 +1087,9 @@ class CfgVehicles
 			class Exd_door_t1_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
+			class WallCamonet: AnimSourceHidden{};
+			class GateCamonet: AnimSourceHidden{};
+			class GateCamonet_Rotate: AnimRotate{};
 		};
 		class Construction
 		{
@@ -1649,6 +1736,14 @@ class CfgVehicles
 		attachments[] = {"Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
 		class GUIInventoryAttachmentsProps
 		{
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "roof_build";
+			};
 			class Materials
 			{
 				name = "Materials";
@@ -1689,6 +1784,7 @@ class CfgVehicles
 			class Hologram: AnimSourceHidden{};
 			class Exd_roof_t1: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
+			class WallCamonet: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -1798,9 +1894,17 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet"};
 		class GUIInventoryAttachmentsProps
 		{
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "roof_build";
+			};
 			class Materials
 			{
 				name = "Materials";
@@ -1841,6 +1945,7 @@ class CfgVehicles
 			class Hologram: AnimSourceHidden{};
 			class Exd_roof_d_t1: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
+			class WallCamonet: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -2607,6 +2712,136 @@ class CfgVehicles
 					};
 					componentNames[]=	 {"exd_foundation_t1"};
 					fatalInjuryCoef=-1;
+				};
+			};
+		};
+	};
+
+	//TESTE UNDERGROUD BASE
+	class EXD_UnderGroud: Inventory_Base
+	{
+		scope = 2;
+		displayName = " ";
+		descriptionShort = "?";
+		model = "\Exodus_BaseBuild\Data\Models\UndergroudBase\Small\UnderGroudTeste.p3d";
+		overrideDrawArea = "3.0";
+		forceFarBubble = "true";
+		lootCategory = "Crafted";
+		carveNavmesh = 1;
+		weight = 60000;
+		itemSize[] = {6,6};
+		physLayer = "item_large";
+		createProxyPhysicsOnInit = "false";
+		createdProxiesOnInit[] = {"Hologram"};
+		rotationFlags = 2;
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		hybridAttachments[] = {};
+		mountables[] = {};
+		class GUIInventoryAttachmentsProps
+		{
+			class Materials
+			{
+				name = "Materials";
+				description = "";
+				attachmentSlots[] = {"Material_L1_WoodenLogs"};
+				icon = "cat_bb_material";
+				selection = "under_build";
+			};
+		};
+		class AnimationSources
+		{
+			class AnimSourceShown
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class AnimSourceHidden
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 1;
+			};
+			class AnimRotate
+			{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Hologram: AnimSourceHidden{
+				source = "user";
+				animPeriod = 0.01;
+				initPhase = 0;
+			};
+			class Under_base: AnimSourceHidden{};
+			class Under_entrance: AnimSourceHidden{};
+		};
+		class Construction
+		{
+			class under_build
+			{
+				class Under_entrance
+				{
+					name = "| Entrada |";
+					is_base = 1;
+					id = 1;
+					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 1;
+						};
+					};
+				};
+				class Under_base
+				{
+					name = "| Interior |";
+					//is_base = 1;
+					id = 2;
+					required_parts[] = {"Under_entrance"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 1;
+						};
+					};
+				};
+				
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 500;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=10;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
 				};
 			};
 		};
