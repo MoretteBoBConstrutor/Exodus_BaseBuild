@@ -25,6 +25,10 @@ modded class BaseBuildingBase
 		return false;
 	}
 	
+	/* bool NoResstrictBuild()
+	{
+		return false;
+	} */
 
 	//Procure por HasProperDistance no arquivo fence.c la voce encontra essa varievel :D
 	bool DistanceNormalPart( string selection, PlayerBase player )

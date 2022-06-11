@@ -217,6 +217,14 @@ modded class ItemBase
 		return false;
 	}
 
+	//TESTE 
+	//PErmitir item na zona restrita
+	bool UnrestrictedItem()
+	{
+		return true;
+	}
+	//END TESTE
+
 	/* Setar a açao na base dos itens faz com que qualquer item adicionado ao .json possa ser usado como ferramenta de raid, 
 	des que seja derivado do class ItemBase.
 	Ainda nao testei se pode ocorrer bugs ou crash.

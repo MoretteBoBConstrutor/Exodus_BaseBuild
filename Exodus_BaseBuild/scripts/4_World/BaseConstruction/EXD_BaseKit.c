@@ -24,6 +24,11 @@ class EXD_BaseKit extends ItemBase
     {
         return false;
     }
+
+	override bool UnrestrictedItem()
+	{
+		return true;
+	}
 	
 	override void SetActions()
 	{

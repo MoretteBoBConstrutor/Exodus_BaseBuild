@@ -21,41 +21,14 @@ class ActionTeleportUnderGroud: ActionInteractBase
 
 	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
 	{
-       /*  Object target_object = target.GetObject();
-        EXD_Base exdbase = EXD_Base.Cast( target_object );
-        if( exdbase.IsUnderGroud() )
-		{
-			return true;
-		}
-        return false; */
 
-        /* Object targetObject = target.GetObject();
-		if ( targetObject && targetObject.CanUseConstruction() )
-		{
-			EXD_Base exdbase = EXD_Base.Cast( targetObject );
-			
-			if ( exdbase && exdbase.IsUnderGroud() )
-			{
-				array<string> selections = new array<string>;
-				targetObject.GetActionComponentNameList(target.GetComponentIndex(), selections);
-				
-				for ( int i = 0; i < selections.Count(); i++ )
-				{
-					if ( selections[i] == "under_entrance" )
-						return true;
-				}
-			}
-		} */
 
 		Object targetObject = target.GetObject();
-	/* 	Construction under_entrance_t = Construction.Cast(targetObject);
-		ConstructionPart under_entrance = under_entrance_t.GetConstructionPart("Under_base");
-		 */
 		if ( targetObject && targetObject.CanUseConstruction() )
 		{
-			EXD_Base exdbase = EXD_Base.Cast( targetObject );
+			/* EXD_Base exdbase = EXD_Base.Cast( targetObject );
 			
-			if ( exdbase && exdbase.IsUnderGroud() )
+			if ( exdbase && exdbase.IsUnderGroud() && exdbase.IsOpened())
 			{
 				array<string> selections = new array<string>;
 				targetObject.GetActionComponentNameList(target.GetComponentIndex(), selections);
@@ -64,13 +37,45 @@ class ActionTeleportUnderGroud: ActionInteractBase
 				{
 					if ( selections[i] == "under_entrance" )
 					{
-						if( /* GetConstructionPart("Under_base") */exdbase.GetConstruction().GetConstructionPart("Under_base").IsBuilt() )
+						if(exdbase.GetConstruction().GetConstructionPart("Under_base").IsBuilt() )
+						return true;
+					}
+					return false;
+				}
+			} */
+
+
+			EXD_Base exdbase = EXD_Base.Cast( targetObject );
+			array<string> selections = new array<string>;
+			targetObject.GetActionComponentNameList(target.GetComponentIndex(), selections);
+
+			if ( exdbase && exdbase.IsUnderGroud() && exdbase.IsOpened() && exdbase.HasFullyConstructedGate())
+			{
+				for ( int i = 0; i < selections.Count(); i++ )
+				{
+                    if ( selections[i] == "under_entrance" )
+					{
+						if(exdbase.GetConstruction().GetConstructionPart("Under_base").IsBuilt() )
+						return true;
+					}
+					return false;
+				}
+			}
+			else if (exdbase && exdbase.IsUnderGroud() && !exdbase.HasFullyConstructedGate())
+			{
+				for ( int j = 0; j < selections.Count(); j++ )
+				{
+                    if ( selections[j] == "under_entrance" )
+					{
+						if(exdbase.GetConstruction().GetConstructionPart("Under_base").IsBuilt() )
 						return true;
 					}
 					return false;
 				}
 			}
 		}
+
+		
 		
 		return false;
 	}
@@ -125,11 +130,13 @@ class ActionTeleportUnderGroudLeave: ActionInteractBase
 		if ( targetObject && targetObject.CanUseConstruction() )
 		{
 			EXD_Base exdbase = EXD_Base.Cast( targetObject );
-			
-			if ( exdbase && exdbase.IsUnderGroud() )
+			array<string> selections = new array<string>;
+			targetObject.GetActionComponentNameList(target.GetComponentIndex(), selections);
+
+			if ( exdbase && exdbase.IsUnderGroud() && exdbase.IsOpened() && exdbase.HasFullyConstructedGate())
 			{
-				array<string> selections = new array<string>;
-				targetObject.GetActionComponentNameList(target.GetComponentIndex(), selections);
+				//array<string> selections = new array<string>;
+				//targetObject.GetActionComponentNameList(target.GetComponentIndex(), selections);
 				
 				for ( int i = 0; i < selections.Count(); i++ )
 				{
@@ -137,6 +144,20 @@ class ActionTeleportUnderGroudLeave: ActionInteractBase
                     if ( selections[i] == "under_leave" )
 						return true;
 				}
+				return false;
+			}
+			else if (exdbase && exdbase.IsUnderGroud() && !exdbase.HasFullyConstructedGate())
+			{
+				//array<string> selections = new array<string>;
+				//targetObject.GetActionComponentNameList(target.GetComponentIndex(), selections);
+				
+				for ( int j = 0; j < selections.Count(); j++ )
+				{
+					/* if ( selections[i] == "under_base" ) */
+                    if ( selections[j] == "under_leave" )
+						return true;
+				}
+				return false;
 			}
 		}
 		

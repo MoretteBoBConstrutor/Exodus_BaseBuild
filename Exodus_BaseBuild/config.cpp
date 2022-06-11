@@ -705,7 +705,7 @@ class CfgVehicles
 		scope = 2;
 		displayName = "Hologram";
 		descriptionShort = "xD";
-		model = "\Exodus_BaseBuild\Data\Models\UndergroudBase\Small\proxy_UnderGroudHolo.p3d";
+		model = "\Exodus_BaseBuild\Data\Models\UndergroudBase\Small\UnderGroundBase_Hologram.p3d";
 		overrideDrawArea = "3.0";
 		attachments[] = {};
 		carveNavmesh = 1;

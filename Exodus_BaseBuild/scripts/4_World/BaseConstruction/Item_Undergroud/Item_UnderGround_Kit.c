@@ -44,7 +44,7 @@ class EXD_BB_Kit_UnderGroud extends EXD_BaseKit
 			exdunderG.SetAnimationPhase( "Hologram", 0 );
 
 			//make the kit invisible, so it can be destroyed from deploy UA when action ends
-			//HideAllSelections();
+			HideAllSelections();
 		}
 	}
 	
@@ -52,6 +52,11 @@ class EXD_BB_Kit_UnderGroud extends EXD_BaseKit
 	{
 		return true;
 	}	
+
+	override bool UnrestrictedItem()
+	{
+		return false;
+	}
 };
 
 class EXD_UnderGroud_Hologram extends ItemBase{};

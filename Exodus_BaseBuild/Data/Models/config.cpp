@@ -2734,11 +2734,19 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Att_CombinationLock"};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
 		{
+			class Attachments
+			{
+				name = "Attachments";
+				description = "";
+				attachmentSlots[] = {"Att_CombinationLock"};
+				icon = "cat_bb_attachments";
+				selection = "floor_build";
+			};
 			class Materials
 			{
 				name = "Materials";
@@ -2768,13 +2776,16 @@ class CfgVehicles
 				animPeriod = 0.01;
 				initPhase = 0;
 			};
-			class Hologram: AnimSourceHidden{
+			/* class Hologram: AnimSourceHidden{
 				source = "user";
 				animPeriod = 0.01;
 				initPhase = 0;
-			};
+			}; */
+			class Hologram: AnimSourceHidden{};
 			class Under_base: AnimSourceHidden{};
 			class Under_entrance: AnimSourceHidden{};
+			class Under_Door_t1: AnimSourceHidden{};
+			class Under_Door_Rotate: AnimRotate{};
 		};
 		class Construction
 		{
@@ -2822,6 +2833,28 @@ class CfgVehicles
 						};
 					};
 				};
+				class under_door_t1
+				{
+					name = "| Door |";
+					is_gate = 1;
+					id = 3;
+					required_parts[] = {"Under_base"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 1;
+						};
+					};
+				};
+
 				
 			};
 		};
@@ -2829,7 +2862,7 @@ class CfgVehicles
 		{
 			class GlobalHealth
 			{
-				class Health 	 {hitpoints = 500;};
+				class Health 	 {hitpoints = 100;};
 			};
 			class GlobalArmor
 			{
@@ -2839,9 +2872,41 @@ class CfgVehicles
 					class Shock	 {damage=0;};
 				};
 				class FragGrenade{
-					class Health {damage=10;};
+					class Health {damage=0;};
 					class Blood  {damage=0;};
 					class Shock	 {damage=0;};
+				};
+			};
+			class DamageZones
+			{
+				class under_door_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						transferToGlobalCoef=0;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"under_door_t1"};
+					fatalInjuryCoef=-1;
 				};
 			};
 		};
