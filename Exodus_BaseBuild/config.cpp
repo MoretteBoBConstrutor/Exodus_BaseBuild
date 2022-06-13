@@ -3311,7 +3311,61 @@ class CfgVehicles
 	};
  */
 
-
+	/* class HouseNoDestruct; */
+	class Land_UnderGroud_Part: Container_Base
+	{
+		scope=2;
+		physLayer = "item_large";
+		model="\Exodus_BaseBuild\Data\Models\UndergroudBase\data\Land_UnderGroudBase.p3d";
+		//itemSize[] = {10,99};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 100;};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+		};
+	};
+	class Land_UnderGroud_LockPart: Container_Base
+	{
+		scope=2;
+		physLayer = "item_large";
+		model="\Exodus_BaseBuild\Data\Models\UndergroudBase\data\UpgradeLock.p3d";
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health 	 {hitpoints = 100;};
+				healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+			};
+			class GlobalArmor
+			{
+				class Projectile{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+				class FragGrenade{
+					class Health {damage=0;};
+					class Blood  {damage=0;};
+					class Shock	 {damage=0;};
+				};
+			};
+		};
+	};
 
 }; 
 

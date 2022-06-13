@@ -53,32 +53,30 @@ modded class ActionDeployObject
 		    	UG_base = item;
 		    }
 
-            int UG_baseradius = 30;
+            int UG_baseradius = 150;
             if (UG_base)
 			{
-				float distanceAdmin;
-				array<Object> nearest_objects_admin = new array<Object>;
-				array<CargoBase> proxy_cargos_admin = new array<CargoBase>;
+				float distanciaUG_b;
+				array<Object> objetoUB_g_regiao = new array<Object>; 
+				array<CargoBase> cargoUB_g = new array<CargoBase>;
 				
-				GetGame().GetObjectsAtPosition(UG_base.GetPosition(), UG_baseradius, nearest_objects_admin, proxy_cargos_admin);
+				GetGame().GetObjectsAtPosition(UG_base.GetPosition(), UG_baseradius, objetoUB_g_regiao, cargoUB_g);
 				
-				for (int a = 0; a < nearest_objects_admin.Count(); a++)
+				for (int a = 0; a < objetoUB_g_regiao.Count(); a++)
 				{
-					Object objectAdmin = nearest_objects_admin.Get(a);
+					Object objectAdmin = objetoUB_g_regiao.Get(a);
 					if (objectAdmin.GetType() == "EXD_UnderGroud")
 					{
 						EXD_UnderGroud under_base = EXD_UnderGroud.Cast(objectAdmin);
-						GetGame().GetObjectsAtPosition(UG_base.GetPosition(), UG_baseradius, nearest_objects_admin, proxy_cargos_admin);
-						distanceAdmin = vector.Distance(UG_base.GetPosition(), under_base.GetPosition());
-						//Param1<string> Msgparam4 = new Param1<string>(string.Format("Building here is prohibited. Move back %1 meters.", UG_baseradius-Math.Round(distanceAdmin)));
-						//GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, Msgparam4, true, player.GetIdentity());
+						GetGame().GetObjectsAtPosition(UG_base.GetPosition(), UG_baseradius, objetoUB_g_regiao, cargoUB_g);
+						distanciaUG_b = vector.Distance(UG_base.GetPosition(), under_base.GetPosition());
                         if (item_in_hands.UnrestrictedItem())
                         {
                             return true;
                         } 
                         else if ( !item_in_hands.UnrestrictedItem() )
                         {
-                            Param1<string> Msgparam4 = new Param1<string>(string.Format("Item restrito na região. Mova se para trás %1 metros.", UG_baseradius-Math.Round(distanceAdmin)));
+                            Param1<string> Msgparam4 = new Param1<string>(string.Format("Item restrito na região. Mova se para trás %1 metros.", UG_baseradius-Math.Round(distanciaUG_b)));
 						    GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, Msgparam4, true, player.GetIdentity());
                             return false;
                         }

@@ -29,7 +29,7 @@ class EXD_UnderGroud extends EXD_Base
 	{
 		if ( m_GateState != GATE_STATE_NONE )
 		{
-			output = " ";
+			output = "Porta";
 			output.ToUpper();
 			return true;
 		}
@@ -56,7 +56,7 @@ class EXD_UnderGroud extends EXD_Base
 		{
 			vector selection_pos = ModelToWorld( GetMemoryPointPos( selection ) );
 			float distance = vector.Distance( selection_pos, player.GetPosition() );
-			if ( distance >= 2 )
+			if ( distance >= 5 )
 			{
 				return false;
 			}
@@ -87,7 +87,7 @@ class EXD_UnderGroud extends EXD_Base
 		AddAction(ActionOpenFence);
 		AddAction(ActionCloseFence);
 		AddAction(ActionTeleportUnderGroud);
-		AddAction(ActionTeleportUnderGroudLeave);
+		//AddAction(ActionTeleportUnderGroudLeave);
 	}
 
 	override bool CanBePlaced( Man player, vector position )
@@ -106,6 +106,7 @@ class EXD_UnderGroud extends EXD_Base
 		{
 			float value = GATE_ROTATION_ANGLE_DEG;
 			SetAnimationPhase( "Under_Door_Rotate", 				value );
+			SetAnimationPhase( "GateCamonet_Rotate", 				value );
 			
 			SetOpenedState( true );
 			
@@ -121,7 +122,7 @@ class EXD_UnderGroud extends EXD_Base
 		{		
 			float value = 0;
 			SetAnimationPhase( "Under_Door_Rotate", 				value );
-
+			SetAnimationPhase( "GateCamonet_Rotate", 				value );
 			SetOpenedState( false );
 		
 			GetGame().GetCallQueue( CALL_CATEGORY_GAMEPLAY ).CallLater( UpdateNavmesh, GATE_ROTATION_TIME_APPROX, false );
@@ -139,3 +140,63 @@ class EXD_UnderGroud extends EXD_Base
 		}
 	}
 }
+
+
+class Land_UnderGroud_Part extends Container_Base
+{
+	override bool CanPutInCargo( EntityAI parent )
+    {
+        if( !super.CanPutInCargo(parent) ) {return false;}        
+        if ( GetNumberOfItems() == 0)
+        {
+            return false;
+        }
+        return false;
+    }
+    
+    override bool CanPutIntoHands(EntityAI parent)
+    {
+        if( !super.CanPutIntoHands( parent ) )
+        {
+            return false;
+        }
+        if ( GetNumberOfItems() == 0 )
+        {
+            return false;
+        }
+        return false;
+    }
+
+	override void SetActions()
+	{
+		super.SetActions();
+		AddAction(ActionTeleportUnderGroudLeave);
+	}
+};
+
+class Land_UnderGroud_LockPart extends Container_Base
+{
+	override bool CanPutInCargo( EntityAI parent )
+    {
+        if( !super.CanPutInCargo(parent) ) {return false;}        
+        if ( GetNumberOfItems() == 0)
+        {
+            return false;
+        }
+        return false;
+    }
+    
+    override bool CanPutIntoHands(EntityAI parent)
+    {
+        if( !super.CanPutIntoHands( parent ) )
+        {
+            return false;
+        }
+        if ( GetNumberOfItems() == 0 )
+        {
+            return false;
+        }
+        return false;
+    }
+};
+

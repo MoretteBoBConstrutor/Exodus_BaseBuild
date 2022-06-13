@@ -237,8 +237,6 @@ class EXD_Base extends Fence
 			SetAnimationPhase( "WallCamonetExodus", 1 );
 		} */
 	}
-
-	
 	
 	override void EEItemAttached(EntityAI item, string slot_name)
 	{

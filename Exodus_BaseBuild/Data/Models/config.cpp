@@ -2717,7 +2717,7 @@ class CfgVehicles
 		};
 	};
 
-	//TESTE UNDERGROUD BASE
+	//TESTE UNDERGROUD BASE	
 	class EXD_UnderGroud: Inventory_Base
 	{
 		scope = 2;
@@ -2734,7 +2734,15 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Att_CombinationLock"};
+		attachments[] = 
+		{
+			"Truck_01_WoodenLogs",
+			"Truck_01_WoodenPlanks",
+			"Material_FPole_Stones",
+			"Material_Nails",
+			"Att_CombinationLock",
+			"Wall_Camonet"
+		};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
@@ -2745,13 +2753,21 @@ class CfgVehicles
 				description = "";
 				attachmentSlots[] = {"Att_CombinationLock"};
 				icon = "cat_bb_attachments";
-				selection = "floor_build";
+				selection = "under_build";
+			};
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "under_build";
 			};
 			class Materials
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_L1_WoodenLogs"};
+				attachmentSlots[] = {"Truck_01_WoodenLogs","Truck_01_WoodenPlanks","Material_Nails","Material_FPole_Stones"};
 				icon = "cat_bb_material";
 				selection = "under_build";
 			};
@@ -2776,16 +2792,16 @@ class CfgVehicles
 				animPeriod = 0.01;
 				initPhase = 0;
 			};
-			/* class Hologram: AnimSourceHidden{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 0;
-			}; */
 			class Hologram: AnimSourceHidden{};
 			class Under_base: AnimSourceHidden{};
 			class Under_entrance: AnimSourceHidden{};
 			class Under_Door_t1: AnimSourceHidden{};
 			class Under_Door_Rotate: AnimRotate{};
+			class WallCamonet: AnimSourceHidden{};
+			class GateCamonet: AnimSourceHidden{};
+			class GateCamonet_Rotate: AnimRotate{};
+			class UpgradeLock_t1: AnimSourceHidden{};
+			class Unlokedzone_1: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -2793,49 +2809,79 @@ class CfgVehicles
 			{
 				class Under_entrance
 				{
-					name = "| Entrada |";
+					name = "| Escavar entrada |";
 					is_base = 1;
 					id = 1;
 					required_parts[] = {};
 					conflicted_parts[] = {};
 					collision_data[] = {};
-					build_action_type = 2;
-					dismantle_action_type = 2;
-					material_type = 2;
+					build_action_type=4;
+					dismantle_action_type=4;
+					material_type = 1;
 					class Materials
 					{
-						class Material1
+						/* class Material1
 						{
 							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 1;
+							slot_name = "Truck_01_WoodenLogs";
+							quantity = 8;
+						}; */
+						class Material1
+						{
+							type = "Stone";
+							slot_name = "Material_FPole_Stones";
+							quantity = 20;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Truck_01_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material3
+						{
+							type="Nail";
+							slot_name="Material_Nails";
+							quantity=36;
 						};
 					};
 				};
 				class Under_base
 				{
-					name = "| Interior |";
+					name = "| Escavar zona base |";
 					//is_base = 1;
 					id = 2;
 					required_parts[] = {"Under_entrance"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
-					build_action_type = 2;
-					dismantle_action_type = 2;
-					material_type = 2;
+					build_action_type=4;
+					dismantle_action_type=4;
+					material_type = 1;
 					class Materials
 					{
 						class Material1
 						{
 							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 1;
+							slot_name = "Truck_01_WoodenLogs";
+							quantity = 16;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Truck_01_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type="Nail";
+							slot_name="Material_Nails";
+							quantity=36;
 						};
 					};
 				};
 				class under_door_t1
 				{
-					name = "| Door |";
+					name = "| Porta |";
 					is_gate = 1;
 					id = 3;
 					required_parts[] = {"Under_base"};
@@ -2848,14 +2894,50 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 1;
+							type = "WoodenPlank";
+							slot_name = "Truck_01_WoodenPlanks";
+							quantity = 5;
+						};
+						class Material2
+						{
+							type="Nail";
+							slot_name="Material_Nails";
+							quantity=10;
 						};
 					};
 				};
-
-				
+				class upgradelock_t1
+				{
+					name = "| Reforcar abrigo |";
+					id = 4;
+					required_parts[] = {"Under_base"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type=4;
+					dismantle_action_type=4;
+					material_type = 1;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Truck_01_WoodenLogs";
+							quantity = 16;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Truck_01_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type="Nail";
+							slot_name="Material_Nails";
+							quantity=36;
+						};
+					};
+				};
 			};
 		};
 		class DamageSystem

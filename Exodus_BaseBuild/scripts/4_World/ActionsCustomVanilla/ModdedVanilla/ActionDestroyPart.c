@@ -138,21 +138,21 @@ modded class ActionDestroyPart: ActionContinuousBase
 		compName.ToLower();
 		if ( construction.CanDestroyPart( construction_part.GetPartName() ) )
 		{
-			if ( compName.Contains("t3") )
+			if ( compName.Contains("t3"))
 			{
 				if ( !GetRaidToolT3(item, target) )
 				{
 					return false;
 				}
 			}
-			else if ( compName.Contains("metal") || compName.Contains("t2") )
+			else if ( compName.Contains("t2") )
 			{
 				if ( !GetRaidToolT2(item, target) )
 				{
 					return false;
 				}
 			}
-			else if ( compName.Contains("wood") || compName.Contains("t1") )
+			else if ( compName.Contains("t1") )
 			{
 				if ( !GetRaidToolT1(item, target) )
 				{
@@ -233,7 +233,7 @@ modded class ActionDestroyPart: ActionContinuousBase
 						{
 							if( exdbase )
 							{
-								if ( exdbase.RaidDistanceIrregularPart( "RaidDistance", player ) )
+								if ( exdbase.RaidDistanceIrregularPart( "RaidDistance", player ))
 								{
 									ConstructionActionData construction_action_data_Flat = player.GetConstructionActionData();
 									construction_action_data_Flat.SetTargetPart( construction_part );

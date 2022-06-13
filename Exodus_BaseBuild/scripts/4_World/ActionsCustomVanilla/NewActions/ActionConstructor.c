@@ -7,6 +7,7 @@ modded class ActionConstructor
         actions.Insert(ActionTeleportUnderGroud);
         actions.Insert(ActionTeleportUnderGroudLeave);
         actions.Insert(ActionCreateUnderGroud);
+        actions.Insert(ActionDestroyLockedZone);
     }
 }
 //Introduz a açao ao jogador

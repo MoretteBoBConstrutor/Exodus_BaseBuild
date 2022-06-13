@@ -30,11 +30,13 @@ Lista
 
 RoadWay 
 Wood Walk Sound = dz\surfaces\data\roadway\wood_planks_ext.paa
+Rock Walk Sound = dz\surfaces\data\roadway\stone_ext.paa
 
 FireGeometry
 Wood Sound/Particles = dz\data\data\penetration\wood.rvmat
 Metal Sound/Particles = dz\data\data\penetration\metalplatefence.rvmat
 Glass Sound/Particles = dz\data\data\penetration\glass.rvmat
+Dirt Sound/Particles = dz\data\data\penetration\dirt.rvmat
 
 
 

@@ -1,5 +1,8 @@
 class EXD_BB_Kit_UnderGroud extends EXD_BaseKit
 {	
+	protected Object								Land_underground;
+	protected Object								Land_underground_lockedpart;
+
 	void EXD_BB_Kit_Pillar()
 	{
 	}
@@ -42,8 +45,21 @@ class EXD_BB_Kit_UnderGroud extends EXD_BaseKit
 			exdunderG.SetPosition( position );
 			exdunderG.SetOrientation( orientation );
 			exdunderG.SetAnimationPhase( "Hologram", 0 );
+			/*
+			//Object CreateObject( string type, vector pos, bool create_local = false, bool init_ai = false, bool create_physics = true );
+			//GetGame().CreateObjectEx(item.name, vector.ArrayToVec(item.pos), ECE_SETUP | ECE_UPDATEPATHGRAPH | ECE_CREATEPHYSICS);
+			//Furniture_Shelf_Kit1 = GetGame().CreateObject("Land_UnderGroud_Part", GetPosition(), false, false, true );
+			//Land_underground = GetGame().CreateObjectEx("Land_UnderGroud_Part", GetPosition(), ECE_SETUP | ECE_UPDATEPATHGRAPH | ECE_CREATEPHYSICS );
+			Land_Tisy_Garages Land_UnderGroud_Part
+			*/
+			Land_underground = GetGame().CreateObject("Land_UnderGroud_Part", GetPosition() );
+			Land_underground.SetPosition( position + "0 1200 0" );
+			Land_underground.SetOrientation( orientation );
 
-			//make the kit invisible, so it can be destroyed from deploy UA when action ends
+			Land_underground_lockedpart = GetGame().CreateObject("Land_UnderGroud_LockPart", GetPosition() );
+			Land_underground_lockedpart.SetPosition( position + "0 1200 0" );
+			Land_underground_lockedpart.SetOrientation( orientation );
+
 			HideAllSelections();
 		}
 	}
