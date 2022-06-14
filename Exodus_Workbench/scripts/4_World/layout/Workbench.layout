@@ -1,0 +1,402 @@
+FrameWidgetClass rootFrame {
+ ignorepointer 0
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  ImageWidgetClass Background {
+   visible 1
+   disabled 0
+   clipchildren 1
+   ignorepointer 1
+   color 1 1 1 0
+   position 0 -0.05
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{DA65DB3B0EAD6970}Exodus_Workbench/data/gui/images/Workbench_Background.edds"
+   mode blend
+   "src alpha" 1
+   "no wrap" 0
+   stretch 1
+   "flip u" 0
+   Mask "{DA65DB3B0EAD6970}Exodus_Workbench/data/gui/images/Workbench_Background.edds"
+  }
+  ImageWidgetClass ImageWidgetRoot {
+   visible 1
+   disabled 0
+   clipchildren 1
+   ignorepointer 1
+   position 0 -0.05
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{4FB3ACC1FD9D40F0}Exodus_Workbench/data/gui/images/Workbench.edds"
+   mode blend
+   "src alpha" 1
+   "no wrap" 0
+   stretch 1
+   "flip u" 0
+  }
+  PanelWidgetClass PanelWidget {
+   ignorepointer 1
+   color 0 0 0 0
+   position 0 -0.05
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style blank
+   {
+    PanelWidgetClass PanelWidgetMain {
+     visible 1
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     {
+      ButtonWidgetClass BtnAllRecipes {
+       color 0 0 0 0.1059
+       position 0.14784 0.17198
+       size 0.10337 0.03734
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultButton
+       text "Projetos"
+       font "gui/fonts/Metron-Bold16"
+       "text color" 0 0 0 1
+       "disabled text color" 1 0.5216 0 1
+      }
+      ButtonWidgetClass BtnPosbRecipes {
+       visible 0
+       position 0.02027 0.04
+       size 0.47082 0.04
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "Posb recipe"
+      }
+      PanelWidgetClass PanelWrapperAllRecipes {
+       visible 1
+       ignorepointer 1
+       position 0.1183 0.0309
+       size 0.15704 0.61133
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        ScrollWidgetClass ScrollWidgetRecipes {
+         ignorepointer 0
+         position 0.00395 0
+         size 304 660
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 1
+         style Colorable
+         "Scrollbar V" 1
+         {
+          WrapSpacerWidgetClass WrapSpacerWidgetRecipes {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style Colorable
+           Padding 0
+           Margin 0
+           "Size To Content V" 1
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass PanelWrapperPosRecipes {
+       visible 0
+       ignorepointer 1
+       position 0 0.0843
+       size 1 0.915
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        ScrollWidgetClass ScrollWidgetPosRecipes {
+         ignorepointer 0
+         position 0.05068 0.03926
+         size 0.9247 0.9496
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Colorable
+         "Scrollbar V" 1
+         {
+          WrapSpacerWidgetClass WrapSpacerWidgetPosRecipes {
+           ignorepointer 0
+           position 0 0
+           size 1.02 150
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 1
+           style Colorable
+           Padding 0
+           Margin 0
+           "Size To Content V" 1
+          }
+         }
+        }
+       }
+      }
+      TextWidgetClass Btn_Recipes {
+       ignorepointer 1
+       color 1 1 1 0.7059
+       position -0.29916 186.314
+       size 0.10403 37.8392
+       halign center_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style Bold
+       text "Crafts"
+       font "gui/fonts/Metron-BoldItalic28"
+       "text color" 0 0 0 1
+       "text halign" center
+       "text valign" center
+      }
+      TextWidgetClass Btn_Itens {
+       ignorepointer 1
+       color 1 1 1 0.7451
+       position 0.32088 186.314
+       size 0.10403 37.8392
+       halign center_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style Bold
+       text "Itens"
+       font "gui/fonts/Metron-BoldItalic28"
+       "text color" 0 0 0 1
+       "text halign" center
+       "text valign" center
+      }
+      TextWidgetClass Btn_Acessorios {
+       ignorepointer 1
+       color 1 1 1 0.7176
+       position -0.1467 688.79407
+       size 0.10403 37.8392
+       halign center_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style Bold
+       text "Progresso"
+       font "gui/fonts/MetronBlack-Italic16"
+       "text color" 0 0 0 1
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    ScrollWidgetClass ScrollCraftItems {
+     ignorepointer 0
+     color 0 0 0 0.0784
+     position 0.09645 0.02567
+     size 330 0.6224
+     halign right_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     scaled 1
+     fixaspect fixwidth
+     style blank
+     "no focus" 0
+     "Scrollbar V" 1
+     "Scrollbar V Left" 1
+     {
+      WrapSpacerWidgetClass WrapSpacerWidget {
+       clipchildren 1
+       ignorepointer 1
+       size 1.01 1
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       Padding 0
+       Margin 0
+       "Size To Content V" 1
+      }
+     }
+    }
+    PanelWidgetClass PanelWidgetItem {
+     ignorepointer 1
+     position 0.27751 0.16974
+     size 824.79999 0.68334
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     {
+      TextWidgetClass TextItemName {
+       ignorepointer 1
+       color 1 1 1 0.7451
+       position -0.04636 6.07358
+       size 0.51969 40.6072
+       halign center_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style Bold
+       text "EXD_Construction_Kit"
+       font "gui/fonts/Metron-BoldItalic28"
+       "text color" 0 0 0 1
+       "text halign" center
+       "text valign" center
+      }
+      ItemPreviewWidgetClass ItemPreviewWidget {
+       ignorepointer 0
+       position 0.04726 0.0529
+       size 0.88919 0.60164
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      ButtonWidgetClass BtnCraft {
+       visible 1
+       disabled 1
+       color 0.8667 0 0 1
+       position 0.04049 0.0339
+       size 0.15682 0.09724
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Empty
+       {
+        ImageWidgetClass ImgBtn {
+         ignorepointer 1
+         position -0.00271 -0.01465
+         size 1.62566 0.71178
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         imageTexture "{0B6474D0706E757A}Exodus_Workbench/data/gui/images/CRIAR_default.edds"
+         mode blend
+         "src alpha" 1
+         stretch 1
+        }
+       }
+      }
+      ProgressBarWidgetClass ProgressCraftBar {
+       visible 1
+       ignorepointer 1
+       position 0.34315 0.28185
+       size 0.41456 0.02145
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Stamina
+       current 0
+      }
+      TextWidgetClass ItemResultCount {
+       ignorepointer 1
+       color 1 1 1 0.6627
+       position 0.0811 0.71285
+       size 0.08456 0.06695
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "99"
+       font "gui/fonts/Metron-BoldItalic48"
+       "text color" 1 1 1 0.3373
+       "exact text" 0
+       "text halign" center
+       "text valign" center
+      }
+      MultilineTextWidgetClass NedeedAttachms {
+       ignorepointer 1
+       position 0.05001 0.05768
+       size 0.66916 0.17847
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       "exact text" 0
+       wrap 1
+      }
+      TextWidgetClass TextWidget0 {
+       ignorepointer 1
+       color 1 1 1 0.8
+       position 0.21024 0.2367
+       size 0.33952 0.03416
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Normal
+       text "Ferramentas Necessarias"
+       font "gui/fonts/Metron-Italic14"
+       "text color" 0.5725 0.5725 0.5725 1
+       "exact text" 0
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+ }
+}

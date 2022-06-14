@@ -55,20 +55,32 @@ modded class ActionBuildPart: ActionContinuousBase
 	{	
 		BaseBuildingBase base_building = BaseBuildingBase.Cast( action_data.m_Target.GetObject() );
 		Construction construction = base_building.GetConstruction();
+
 		
+
 		string part_name = BuildPartActionData.Cast(action_data).m_PartType;
+
+		//TEST
+		ConstructionActionData construction_action_data = action_data.m_Player.GetConstructionActionData();
+		ConstructionPart construction_part = construction_action_data.GetTargetPart();
+		//TEST END
 		
 		//Dano da ferramenta .Json
 		int damageToTool = g_Game.GetExodusConfig().Get_BuildToolDamage();
 
 		if ( !construction.IsColliding( part_name ) && construction.CanBuildPart( part_name, action_data.m_MainItem, true ) )
 		{
-			//build
 			construction.BuildPartServer( action_data.m_Player, part_name, AT_BUILD_PART );
-			
-			//add damage to tool
 			action_data.m_MainItem.DecreaseHealth( damageToTool, false );
-			
+
+			Print("Tudo certo");
+			//TEST
+			if ( construction_part.GetPartName() == "pole" )
+			{ 
+				ItemBase kit_exd_wb = ItemBase.Cast( GetGame().CreateObjectEx( "EXD_BB_Kit_Clipboard", action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE ) );
+				Print("Kit Spawn apos construcao bandeira");
+			}
+			//TEST END
 		}
 		
 		action_data.m_Player.GetSoftSkillsManager().AddSpecialty( m_SpecialtyWeight );

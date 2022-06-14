@@ -143,6 +143,12 @@ modded class Hologram
 					EXD_Foundation exdfoundation = EXD_Foundation.Cast(obj_collided);
 					return exdfoundation;
 				}
+				//EXODUS WORKBENCH
+				if( obj_collided.IsInherited(Exodus_Workbench) )
+				{
+					Exodus_Workbench exdwb = Exodus_Workbench.Cast(obj_collided);
+					return exdwb;
+				}
 			}
 		}
 		return null;

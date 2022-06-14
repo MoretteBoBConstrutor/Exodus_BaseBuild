@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{4FB3ACC1FD9D40F0}Exodus_Workbench/data/gui/images/Workbench.edds"
+ Author "desktop-4khclng"
+ ChangeDate -1172509496
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "Workbench.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

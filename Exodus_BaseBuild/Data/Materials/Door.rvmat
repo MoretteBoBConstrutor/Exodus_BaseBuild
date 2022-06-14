@@ -1,9 +1,9 @@
 ambient[] = {1.0,1.0,1.0,1.0};
 diffuse[] = {1.0,1.0,1.0,1.0};
 forcedDiffuse[] = {0.0,0.0,0.0,0.0};
-emmisive[] = {0.0,0.0,0.0,1.0};
+emmisive[] = {0.0,0.0,0.0,0.05};
 specular[] = {0.601999,0.601999,0.601999,0.61};
-specularPower = 50.0;
+specularPower = 20.0;
 PixelShaderID = "Super";
 VertexShaderID = "Super";
 class Stage1
@@ -48,8 +48,8 @@ class Stage4
 	uvSource = "tex1";
 	class uvTransform
 	{
-		aside[] = {1.0,0.0,0.0};
-		up[] = {0.0,1.0,0.0};
+		aside[] = {0.50,0.0,0.0};
+		up[] = {1.0,0.0,0.0};
 		dir[] = {0.0,0.0,0.0};
 		pos[] = {0.0,0.0,0.0};
 	};

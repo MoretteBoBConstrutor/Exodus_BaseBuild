@@ -1,0 +1,73 @@
+SmartPanelWidgetClass rootFrame {
+ color 0 0 0 0.3922
+ position 0 0
+ size 154.2 195.67001
+ hexactpos 0
+ vexactpos 0
+ hexactsize 1
+ vexactsize 1
+ userID 25
+ style blank
+ {
+  ItemPreviewWidgetClass CraftItemPreview {
+   ignorepointer 1
+   color 1 1 1 0.8549
+   position 0 0
+   size 154.2 165
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass Craftitemnedeed {
+   ignorepointer 1
+   color 0.8667 0 0 1
+   position 0 0
+   size 1.00635 0.1546
+   halign right_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "0/0"
+   "text offset" -10 0
+   "exact text" 1
+   "text halign" center
+   "text valign" center
+  }
+  PanelWidgetClass CraftItemPanel {
+   visible 0
+   ignorepointer 1
+   color 0 0 0 0.5882
+   position 0 0.18511
+   size 1 0.45979
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scaled 1
+   fixaspect inside
+   priority 5
+   style UIDefaultPanel
+   {
+    MultilineTextWidgetClass CraftItemName {
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style None
+     text "nome"
+     font "gui/fonts/Metron-Italic16"
+     "exact text" 1
+     "text halign" center
+     "text valign" center
+     wrap 1
+    }
+   }
+  }
+ }
+}

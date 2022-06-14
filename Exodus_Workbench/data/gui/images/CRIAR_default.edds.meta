@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{0B6474D0706E757A}Exodus_Workbench/data/gui/images/CRIAR_default.edds"
+ Author "desktop-4khclng"
+ ChangeDate -1215517499
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "CRIAR_default.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

@@ -814,6 +814,7 @@ class CfgVehicles
 			class Exd_floorh_door2_t1_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
+			class Exd_floorh_stair_t1: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -886,6 +887,32 @@ class CfgVehicles
 					is_gate = 1;
 					id = 4;
 					required_parts[] = {"exd_floorh_door1_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 4;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 8;
+						};
+					};
+				};
+				class exd_floorh_stair_t1
+				{
+					name = "Stair | T1 |";
+					id = 5;
+					required_parts[] = {"exd_floorh_t1"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
 					build_action_type = 2;
@@ -1014,6 +1041,34 @@ class CfgVehicles
 					componentNames[]=	 {"exd_floorh_door2_t1"};
 					fatalInjuryCoef=-1;
 				};
+				class exd_floorh_stair_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_stair_t1"};
+					fatalInjuryCoef=-1;
+				};
 			};
 		};
 	};
@@ -1083,8 +1138,11 @@ class CfgVehicles
 			class Deployed: AnimSourceHidden{};
 			class Hologram: AnimSourceHidden{};
 			class Exd_wall_d_t1: AnimSourceHidden{};
+			class Exd_wall_d_t2: AnimSourceHidden{};
 			class Exd_door_t1: AnimSourceHidden{};
 			class Exd_door_t1_Rotate: AnimRotate{};
+			class Exd_door_t2: AnimSourceHidden{};
+			class Exd_door_t2_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
 			class WallCamonet: AnimSourceHidden{};
@@ -1156,6 +1214,64 @@ class CfgVehicles
 						};
 					};
 				};
+				class exd_door_t2
+				{
+					name = "Door | T2 |";
+					id = 4;
+					required_parts[] = {"exd_door_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";//metalplate
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+					};
+				};
+				class exd_wall_d_t2
+				{
+					name = "Wall | T2 |";
+					id = 5;
+					required_parts[] = {"exd_wall_d_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+					};
+				};
 			};
 		};
 		class DamageSystem
@@ -1207,6 +1323,34 @@ class CfgVehicles
 					componentNames[]=	 {"exd_wall_d_t1"};
 					fatalInjuryCoef=-1;
 				};
+				class exd_wall_d_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_d_t2"};
+					fatalInjuryCoef=-1;
+				};
 				class exd_door_t1
 				{
 					class Health
@@ -1233,6 +1377,34 @@ class CfgVehicles
 						};
 					};
 					componentNames[]=	 {"exd_door_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_door_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_door_t2"};
 					fatalInjuryCoef=-1;
 				};
 			};
@@ -2105,6 +2277,7 @@ class CfgVehicles
 			class Exd_floorh_door2_t1_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
+			class Exd_floorh_stair_t1: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -2177,6 +2350,32 @@ class CfgVehicles
 					is_gate = 1;
 					id = 4;
 					required_parts[] = {"exd_floorh_door1_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 4;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 8;
+						};
+					};
+				};
+				class exd_floorh_stair_t1
+				{
+					name = "Stair | T1 |";
+					id = 5;
+					required_parts[] = {"exd_floorh_t1"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
 					build_action_type = 2;
@@ -2303,6 +2502,34 @@ class CfgVehicles
 						};
 					};
 					componentNames[]=	 {"exd_floorh_door2_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_floorh_stair_t1
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_stair_t1"};
 					fatalInjuryCoef=-1;
 				};
 			};
@@ -2982,6 +3209,7 @@ class CfgVehicles
 							class Shock	 {damage=0;};
 						};
 						class FragGrenade{
+							//TENTAR ADICIONAR DANO POR GRANADA E ARMA
 							class Health {damage=0;};
 							class Blood  {damage=0;};
 							class Shock	 {damage=0;};

@@ -26,7 +26,7 @@ class EXD_Roof_Hatch extends EXD_Base
 		{
 			vector selection_pos = ModelToWorld( GetMemoryPointPos( selection ) );
 			float distance = vector.Distance( selection_pos, player.GetPosition() );
-			if ( distance >= 1.6 )
+			if ( distance >= 2 )
 			{
 				return false;
 			}
