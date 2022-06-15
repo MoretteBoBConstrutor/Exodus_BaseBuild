@@ -71,6 +71,7 @@ class CfgVehicles
 			class Deployed: AnimSourceHidden{};
 			class Hologram: AnimSourceHidden{};
 			class Exd_wall_t1: AnimSourceHidden{};
+			class Exd_wall_t2: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
 			class WallCamonet: AnimSourceHidden{};
 		};
@@ -84,6 +85,38 @@ class CfgVehicles
 					is_base = 1;
 					id = 1;
 					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+				    {
+				    	class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+				    };
+				};
+				class exd_wall_t2
+				{
+					name = "Wall | T2 |";
+					id = 2;
+					required_parts[] = {"exd_wall_t1"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
 					build_action_type = 2;
@@ -161,6 +194,35 @@ class CfgVehicles
 						};
 					};
 					componentNames[]=	 {"exd_wall_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_wall_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						transferToGlobalCoef=0;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_wall_t2"};
 					fatalInjuryCoef=-1;
 				};
 			};
@@ -490,11 +552,11 @@ class CfgVehicles
 				animPeriod = 0.01;
 				initPhase = 0;
 			};
-			class Material_Nails: AnimSourceHidden{};
 			class Wall_Camonet: AnimSourceHidden{};
 			class Deployed: AnimSourceHidden{};
 			class Hologram: AnimSourceHidden{};
 			class Exd_Floor_t1: AnimSourceHidden{};
+			class Exd_Floor_t2: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
 			class WallCamonet: AnimSourceHidden{};
 		};
@@ -508,6 +570,38 @@ class CfgVehicles
 					is_base = 1;
 					id = 1;
 					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+					};
+				};
+				class exd_floor_t2
+				{
+					name = "Floor | T2 |";
+					id = 2;
+					required_parts[] = {"exd_floor_t1"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
 					build_action_type = 2;
@@ -584,6 +678,34 @@ class CfgVehicles
 						};
 					};
 					componentNames[]=	 {"exd_floor_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_floor_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floor_t2"};
 					fatalInjuryCoef=-1;
 				};
 			};
@@ -1955,6 +2077,7 @@ class CfgVehicles
 			class Deployed: AnimSourceHidden{};
 			class Hologram: AnimSourceHidden{};
 			class Exd_roof_t1: AnimSourceHidden{};
+			class Exd_roof_t2: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
 			class WallCamonet: AnimSourceHidden{};
 		};
@@ -1968,6 +2091,38 @@ class CfgVehicles
 					is_base = 1;
 					id = 1;
 					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 20;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 36;
+						};
+					};
+				};
+				class exd_roof_t2
+				{
+					name = "Roof | T2 |";
+					id = 2;
+					required_parts[] = {"exd_roof_t1"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
 					build_action_type = 2;
@@ -2044,6 +2199,34 @@ class CfgVehicles
 						};
 					};
 					componentNames[]=	 {"exd_roof_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_roof_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_roof_t2"};
 					fatalInjuryCoef=-1;
 				};
 			};
@@ -3210,7 +3393,7 @@ class CfgVehicles
 						};
 						class FragGrenade{
 							//TENTAR ADICIONAR DANO POR GRANADA E ARMA
-							class Health {damage=0;};
+							class Health {damage=1;};
 							class Blood  {damage=0;};
 							class Shock	 {damage=0;};
 						};

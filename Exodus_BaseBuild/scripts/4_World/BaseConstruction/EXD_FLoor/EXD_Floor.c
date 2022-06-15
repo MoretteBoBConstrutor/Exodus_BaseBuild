@@ -35,7 +35,7 @@ class EXD_Floor extends EXD_Base
 		{
 			vector selection_pos = ModelToWorld( GetMemoryPointPos( selection ) );
 			float distance = vector.Distance( selection_pos, player.GetPosition() );
-			if ( distance >= 1.7 )
+			if ( distance >= 1.8 )
 			{
 				return false;
 			}

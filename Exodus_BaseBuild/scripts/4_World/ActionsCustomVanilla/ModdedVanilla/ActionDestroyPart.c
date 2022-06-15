@@ -310,9 +310,27 @@ modded class ActionDestroyPart: ActionContinuousBase
 			}
 			else if ( compName.Contains("t2") )
 			{
-				construction.DestroyPartServer( action_data.m_Player, construction_part.GetPartName(), AT_DESTROY_PART );
+				if (zone_name != "")
+				{
+					base_building.AddHealth(zone_name,"Health",-(base_building.GetMaxHealth(zone_name,"")/DamageZoneLoopT1));
+
+					//Print("Dano Adicionado" + " "+ action_data.m_MainItem.GetDisplayName() +" "+ action_data.m_Player.GetIdentity().GetName() + " " + action_data.m_Player.GetPosition()); GetId()
+
+					if ( base_building.GetHealth(zone_name,"Health") < 1 )
+					{
+						construction.DestroyPartServer( action_data.m_Player, construction_part.GetPartName(), AT_DESTROY_PART );
+						NotificationSystem.SendNotificationToPlayerIdentityExtended(action_data.m_Player.GetIdentity(), 0.5, "BaseBuild", construction_part.GetName() + " " + "has been destroyed", Picture);
+						Print("Destroyed " + action_data.m_Target.GetObject().GetDisplayName() + " with " + action_data.m_MainItem.GetDisplayName() + " " + action_data.m_Player.GetIdentity().GetName() + " = " + action_data.m_Player.GetIdentity().GetPlainId() + " " + action_data.m_Player.GetPosition());
+					}
+				}
+				else
+				{
+					construction.DestroyPartServer( action_data.m_Player, construction_part.GetPartName(), AT_DESTROY_PART );
+				}
+				//action_data.m_MainItem.DecreaseHealth( raidToolDamageT1, false );
+				//construction.DestroyPartServer( action_data.m_Player, construction_part.GetPartName(), AT_DESTROY_PART );
 				action_data.m_MainItem.DecreaseHealth( raidToolDamageT2, false );
-				EnviarMensagem(action_data.m_Player, "Uma parte nivel 2 foi destruida");
+				//EnviarMensagem(action_data.m_Player, "Uma parte nivel 2 foi destruida");
 			}
 			else if ( compName.Contains("t3") )
 			{
