@@ -33,8 +33,10 @@ class EXD_Double_Door extends EXD_Base
 		{
 			float value = GATE_ROTATION_ANGLE_DEG;
 			SetAnimationPhase( "Wall_Interact_Rotate", 				value );
-			SetAnimationPhase( "Exd_d_d_l_Rotate", 				value );
-			SetAnimationPhase( "Exd_d_d_r_Rotate", 				value );
+			SetAnimationPhase( "Exd_d_d_l_Rotate", 					value );
+			SetAnimationPhase( "Exd_d_d_r_Rotate", 					value );
+			SetAnimationPhase( "Exd_d_d_l_t2_Rotate", 				value );
+			SetAnimationPhase( "Exd_d_d_r_t2_Rotate", 				value );
 			
 			SetOpenedState( true );
 			
@@ -60,8 +62,10 @@ class EXD_Double_Door extends EXD_Base
 		{		
 			float value = 0;
 			SetAnimationPhase( "Wall_Interact_Rotate", 				value );
-			SetAnimationPhase( "Exd_d_d_l_Rotate", 				value );
-			SetAnimationPhase( "Exd_d_d_r_Rotate", 				value );
+			SetAnimationPhase( "Exd_d_d_l_Rotate", 					value );
+			SetAnimationPhase( "Exd_d_d_r_Rotate", 					value );
+			SetAnimationPhase( "Exd_d_d_l_t2_Rotate", 				value );
+			SetAnimationPhase( "Exd_d_d_r_t2_Rotate", 				value );
 			
 			SetOpenedState( false );
 			
@@ -85,7 +89,7 @@ class EXD_Double_Door extends EXD_Base
 	
 	protected void CheckFenceClosed()
 	{
-		if ( GetAnimationPhase( "Wall_Gate_Rotate" ) == 0 )			//animation finished - closed
+		if ( GetAnimationPhase( "Exd_d_d_l_Rotate" ) == 0 || GetAnimationPhase( "Exd_d_d_r_Rotate" ) == 0 )			//animation finished - closed
 		{
 			//client or single player
 			if ( !GetGame().IsDedicatedServer() )
@@ -93,7 +97,6 @@ class EXD_Double_Door extends EXD_Base
 				//play sound
 				if ( this ) SoundGateCloseEnd();
 			}
-			UpdateBarbedWireAreaDamagePos(GetAnimationPhase( "Wall_Gate_Rotate" ));
 			//remove check
 			GetGame().GetCallQueue( CALL_CATEGORY_GAMEPLAY ).Remove( CheckFenceClosed );
 		}

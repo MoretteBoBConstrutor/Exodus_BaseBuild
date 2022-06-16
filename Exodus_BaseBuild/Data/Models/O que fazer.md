@@ -24,13 +24,13 @@ Lista
 
 | Item           | Model |  Camonet  | T1  | T2 | T3|
 |-|-|-|-|-|-|
-|EXD_Wall        |  ✅  |     ✅    | ✅ | ✅ | ✅|
+|EXD_Wall        |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Wall_Window |  ✅  |     ✅    | ✅ | ❌ | ❌|
 |EXD_Floor       |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Floor_Delta |  ✅  |     ❌    | ✅ | ❌ | ❌|
 |EXD_Floor_Hatch |  ✅  |     ❌    | ✅ | ❌ | ❌|
 |EXD_Door        |  ✅  |     ✅    | ✅ | ✅ | ❌|
-|EXD_Double_Door |  ✅  |     ❌    | ✅ | ❌ | ❌|
+|EXD_Double_Door |  ✅  |     ❌    | ✅ | ✅ | ❌|
 |EXD_Gate_Ramp   |  ✅  |     ❌    | ✅ | ❌ | ❌|
 |EXD_Roof        |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Roof_Delta  |  ✅  |     ✅    | ✅ | ❌ | ❌|
@@ -47,9 +47,10 @@ Lista
 | Metal Walk Sound  |  = dz\surfaces\data\roadway\metal_thick_ext.paa
 
 
-| FireGeometry
-| Wood Sound/Particles    = dz\data\data\penetration\wood.rvmat
-| Metal Sound/Particles   = dz\data\data\penetration\metalplatefence.rvmat
-| Glass Sound/Particles   = dz\data\data\penetration\glass.rvmat
-| Dirt Sound/Particles    = dz\data\data\penetration\dirt.rvmat
+| FireGeometry            | Sound / Fire Particles |
+| ----------------------- | ------------------------------------------------ |
+| Wood Sound/Particles    | dz\data\data\penetration\wood.rvmat
+| Metal Sound/Particles   | dz\data\data\penetration\metalplatefence.rvmat
+| Glass Sound/Particles   | dz\data\data\penetration\glass.rvmat
+| Dirt Sound/Particles    | dz\data\data\penetration\dirt.rvmat
 

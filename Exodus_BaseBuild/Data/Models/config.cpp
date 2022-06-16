@@ -1590,10 +1590,15 @@ class CfgVehicles
 			class Deployed: AnimSourceHidden{};
 			class Hologram: AnimSourceHidden{};
 			class Exd_wall_double_door_t1: AnimSourceHidden{};
+			class Exd_wall_double_door_t2: AnimSourceHidden{};
 			class Exd_d_d_l_t1: AnimSourceHidden{};
 			class Exd_d_d_r_t1: AnimSourceHidden{};
 			class Exd_d_d_l_Rotate: AnimRotate{};
 			class Exd_d_d_r_Rotate: AnimRotate{};
+			class Exd_d_d_l_t2: AnimSourceHidden{};
+			class Exd_d_d_r_t2: AnimSourceHidden{};
+			class Exd_d_d_l_t2_Rotate: AnimRotate{};
+			class Exd_d_d_r_t2_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
 		};
@@ -1607,6 +1612,39 @@ class CfgVehicles
 					is_base = 1;
 					id = 1;
 					required_parts[] = {};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenLog";
+							slot_name = "Material_L1_WoodenLogs";
+							quantity = 2;
+						};
+						class Material2
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 10;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 18;
+						};
+					};
+					
+				};
+				class exd_wall_double_door_t2
+				{
+					name = "Wall | T2 |";
+					id = 6;
+					required_parts[] = {"exd_wall_double_door_t1"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
 					build_action_type = 2;
@@ -1669,6 +1707,59 @@ class CfgVehicles
 					is_gate = 1;
 					id = 3;
 					required_parts[] = {"exd_wall_double_door_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 5;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 9;
+						};
+					};
+				};
+				class exd_d_d_r_t2
+				{
+					name = "Door R | T2 |";
+					id = 4;
+					required_parts[] = {"exd_d_d_r_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "WoodenPlank";
+							slot_name = "Material_WoodenPlanks";
+							quantity = 5;
+						};
+						class Material2
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 9;
+						};
+					};
+					
+				};
+				class exd_d_d_l_t2
+				{
+					name = "Door L | T2 |";
+					id = 5;
+					required_parts[] = {"exd_d_d_l_t1"};
 					conflicted_parts[] = {};
 					collision_data[] = {};
 					build_action_type = 2;
