@@ -27,7 +27,7 @@ Lista
 |EXD_Wall        |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Wall_Window |  ✅  |     ✅    | ✅ | ❌ | ❌|
 |EXD_Floor       |  ✅  |     ✅    | ✅ | ✅ | ❌|
-|EXD_Floor_Delta |  ✅  |     ❌    | ✅ | ❌ | ❌|
+|EXD_Floor_Delta |  ✅  |     ❌    | ✅ | ✅ | ❌|
 |EXD_Floor_Hatch |  ✅  |     ❌    | ✅ | ❌ | ❌|
 |EXD_Door        |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Double_Door |  ✅  |     ❌    | ✅ | ✅ | ❌|
@@ -38,13 +38,13 @@ Lista
 |EXD_Stair_Mini  |  ✅  |     ❌    | ✅ | ❌ | ❌|
 |EXD_Stair_L     |  ✅  |     ❌    | ✅ | ❌ | ❌|
 |EXD_Pillar      |  ✅  |     ❌    | ✅ | ❌ | ❌|
-|EXD_Foundation  |  ✅  |     ❌    | ✅ | ❌ | ❌|
+|EXD_Foundation  |  ✅  |     ❌    | ✅ | ✅ | ❌|
 
 | RoadWay | Sound |
 | ----------------- | ------------------------------------------------- |
 | Wood Walk Sound   | dz\surfaces\data\roadway\wood_planks_ext.paa
-| Rock Walk Sound   |  = dz\surfaces\data\roadway\stone_ext.paa
-| Metal Walk Sound  |  = dz\surfaces\data\roadway\metal_thick_ext.paa
+| Rock Walk Sound   | dz\surfaces\data\roadway\stone_ext.paa
+| Metal Walk Sound  | dz\surfaces\data\roadway\metal_thick_ext.paa
 
 
 | FireGeometry            | Sound / Fire Particles |
