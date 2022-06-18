@@ -21,23 +21,26 @@ Lista
 - Wall -->          [OK]    [Kit OK]   [Camonet OK]    [T2 OK]
 - Wall W -->        [OK]    [Kit OK]   [Camonet OK] 
 
+✅ Concluido
+➖ Nao Precisa
+❌ Nao Concluido
 
 | Item           | Model |  Camonet  | T1  | T2 | T3|
 |-|-|-|-|-|-|
 |EXD_Wall        |  ✅  |     ✅    | ✅ | ✅ | ❌|
-|EXD_Wall_Window |  ✅  |     ✅    | ✅ | ❌ | ❌|
+|EXD_Wall_Window |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Floor       |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Floor_Delta |  ✅  |     ❌    | ✅ | ✅ | ❌|
 |EXD_Floor_Hatch |  ✅  |     ❌    | ✅ | ❌ | ❌|
 |EXD_Door        |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Double_Door |  ✅  |     ❌    | ✅ | ✅ | ❌|
-|EXD_Gate_Ramp   |  ✅  |     ❌    | ✅ | ❌ | ❌|
+|EXD_Gate_Ramp   |  ✅  |     ❌    | ✅ | ✅ | ❌|
 |EXD_Roof        |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Roof_Delta  |  ✅  |     ✅    | ✅ | ❌ | ❌|
 |EXD_Roof_Hatch  |  ✅  |     ❌    | ✅ | ❌ | ❌|
-|EXD_Stair_Mini  |  ✅  |     ❌    | ✅ | ❌ | ❌|
-|EXD_Stair_L     |  ✅  |     ❌    | ✅ | ❌ | ❌|
-|EXD_Pillar      |  ✅  |     ❌    | ✅ | ❌ | ❌|
+|EXD_Stair_Mini  |  ✅  |     ➖    | ✅ | ➖ | ➖|
+|EXD_Stair_L     |  ✅  |     ➖    | ✅ | ➖ | ➖|
+|EXD_Pillar      |  ✅  |     ➖    | ✅ | ➖ | ➖|
 |EXD_Foundation  |  ✅  |     ❌    | ✅ | ✅ | ❌|
 
 | RoadWay | Sound |

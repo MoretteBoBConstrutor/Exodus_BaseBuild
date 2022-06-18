@@ -33,6 +33,7 @@ class EXD_Wall_Window extends EXD_Base
 		{
 			float value = GATE_ROTATION_ANGLE_DEG;
 			SetAnimationPhase( "Exd_wall_w_door_t1_Rotate", 				value );
+			SetAnimationPhase( "Exd_wall_w_door_t2_Rotate", 				value );
 
 			SetOpenedState( true );
 			
@@ -58,6 +59,7 @@ class EXD_Wall_Window extends EXD_Base
 		{		
 			float value = 0;
 			SetAnimationPhase( "Exd_wall_w_door_t1_Rotate", 				value );
+			SetAnimationPhase( "Exd_wall_w_door_t2_Rotate", 				value );
 
 			SetOpenedState( false );
 			
