@@ -15,7 +15,7 @@ modded class Hologram
 		}
 		if ( item_in_hands && item_in_hands.OpcaoDeAgarrar() )
 		{
-			if ( item_in_hands.EncaixeVertical() || item_in_hands.EncaixeHorizontal() || item_in_hands.EncaixeVerticalPilares() || item_in_hands.EncaixeHorizontalFundacao())
+			if ( item_in_hands.EncaixeVertical() || item_in_hands.EncaixeHorizontal() || item_in_hands.EncaixeVerticalPilares() || item_in_hands.EncaixeHorizontalFundacao() || item_in_hands.EncaixeHorizontalDelta())
 			{	
 				EXD_Base m_exodusObjetosEncaixe;
 				m_exodusObjetosEncaixe = ExodusObjetosDeEncaixe;
@@ -40,6 +40,11 @@ modded class Hologram
 					{
 						SetIsFloating( false );
 						return m_exodusObjetosEncaixe.PegarPontosEncaixeHorizontalFundacao();
+					}
+					if (item_in_hands.EncaixeHorizontalDelta())
+					{
+						SetIsFloating( false );
+						return m_exodusObjetosEncaixe.PegarPontosEncaixeHorizontalDelta();
 					}
 				}
 			}

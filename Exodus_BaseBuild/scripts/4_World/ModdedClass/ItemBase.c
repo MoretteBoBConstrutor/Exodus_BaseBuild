@@ -205,7 +205,45 @@ modded class ItemBase
 		pos = GetMemoryPointPos( "snappingfoundation1" );
 		return ModelToWorld( pos );
 	}
-	
+	//Encaixe horizontais para itens Delta
+	bool EncaixeHorizontalDelta = false;
+	bool EncaixeHorizontalDelta()
+	{
+		return EncaixeHorizontalDelta;
+	}
+	void DefineEncaixeHorizontalDelta(bool e)
+	{
+		EncaixeHorizontalDelta = e;
+	}
+	vector PegarPontosEncaixeHorizontalDelta()
+	{
+		vector pos = "0 0 0";
+		switch(PontosEncaixeHorizontalDelta)
+		{
+			case 0:
+			pos = GetMemoryPointPos( "SnappingDelta1" );
+			return ModelToWorld( pos );
+			break;
+			
+			case 1:
+			pos = GetMemoryPointPos( "SnappingDelta2" );
+			return ModelToWorld( pos );
+			break;
+			
+			case 2:
+			pos = GetMemoryPointPos( "SnappingDelta3" );
+			return ModelToWorld( pos );
+			break;
+			
+			case 3:
+			pos = GetMemoryPointPos( "SnappingDelta4" );
+			return ModelToWorld( pos );
+			break;
+		}
+		pos = GetMemoryPointPos( "SnappingDelta1" );
+		return ModelToWorld( pos );
+	}
+
 	//Definiçao verdadeiro ou flata para setar como ferramenta Admin
 	bool isExdAdminTool()
 	{

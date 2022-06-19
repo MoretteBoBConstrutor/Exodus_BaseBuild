@@ -17,7 +17,103 @@ modded class MissionGameplay
 			Print("[ExodusConfig] MissionGameplay --> Got instance of cfg: " + data.param1);
 		}
     }
+//}
+//modded class MissionGameplay
+//{
+
+	override void OnKeyRelease(int key)
+	{
+		super.OnKeyRelease(key);
+
+		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		ItemBase item_in_hands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
+		if (!player) return;
+		
+		if ( key == KeyCode.KC_B )
+		{
+			if (item_in_hands != NULL && item_in_hands.OpcaoDeAgarrar())
+			{
+				if (item_in_hands.EncaixeVertical() || item_in_hands.EncaixeHorizontal() || item_in_hands.EncaixeVerticalPilares() || item_in_hands.EncaixeHorizontalFundacao() || item_in_hands.EncaixeHorizontalDelta() && item_in_hands != NULL)
+				{	
+					AtivarEncaixe();
+					player.MensageSend();
+				}
+			}
+        }
+		if ( key == KeyCode.KC_K ) 
+		{
+			if (item_in_hands != NULL && item_in_hands.OpcaoDeAgarrar())
+			{
+				if (item_in_hands.EncaixeVertical() || item_in_hands.EncaixeHorizontal() || item_in_hands.EncaixeVerticalPilares() || item_in_hands.EncaixeHorizontalFundacao() || item_in_hands.EncaixeHorizontalDelta() && item_in_hands != NULL)
+				{	
+					SelecaoEncaixe();
+					SelecionarAlvoDeEncaixe();
+					player.MensageSendKeyK();
+				} 
+			}
+        }
+		if ( key == KeyCode.KC_F )
+		{
+			if (item_in_hands != NULL && item_in_hands.OpcaoDeAgarrar())
+			{
+				if (item_in_hands.EncaixeVertical())
+				{	
+					ProcurePontosEncaixeVertical();
+				}
+				if (item_in_hands.EncaixeHorizontal())
+				{	
+					ProcurePontosEncaixeHorizontal();
+				}
+				if (item_in_hands.EncaixeVerticalPilares())
+				{
+					ProcurePontosEncaixeVerticalPilares();
+				}
+				if (item_in_hands.EncaixeHorizontalFundacao())
+				{
+					ProcurePontosEncaixeHorizontalFundacao();
+				}
+				if (item_in_hands.EncaixeHorizontalDelta())
+				{
+					ProcurePontosEncaixeHorizontalDelta();
+				}
+			}
+		}
+		/* 
+			KC_SLASH  	= / 
+			KC_PERIOD 	= .
+			KC_J 	  	= j
+		*/
+		if ( key == KeyCode.KC_J ) 
+		{
+			if (item_in_hands.IsKindOf("EXD_BaseKit") || item_in_hands.GetType() == "FenceKit" || item_in_hands.GetType() == "WatchtowerKit" && item_in_hands != NULL)
+			{
+				MensageSend_R();
+			}
+        }
+    }
+
+	override void OnUpdate(float timeslice)
+	{
+		super.OnUpdate(timeslice);
+
+		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		ItemBase item_in_hands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
+		if (EncaixeAtivadoEscaneando)
+		{
+			if (item_in_hands != NULL && item_in_hands.OpcaoDeAgarrar())
+			{
+				if (item_in_hands.EncaixeVertical() || item_in_hands.EncaixeHorizontal() || item_in_hands.EncaixeVerticalPilares() || item_in_hands.EncaixeHorizontalFundacao() || item_in_hands.EncaixeHorizontalDelta() && item_in_hands != NULL)
+				{
+					if (SelecionarObjetoEncaixeNoAlcance().IsInherited(EXD_Base))
+					{
+						SelecaoEncaixe();
+					}
+				}
+			}
+		}
+	}
 }
+
 
 /* 	
 	UTILIZADO PARA ENVIAR MENSAGEM AO CLIENTE OU SERVER
@@ -48,94 +144,3 @@ modded class MissionGameplay
 	    }
 	}
 */
-modded class MissionGameplay
-{
-
-	override void OnKeyRelease(int key)
-	{
-		super.OnKeyRelease(key);
-
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
-		ItemBase item_in_hands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
-		if (!player) return;
-		
-		if ( key == KeyCode.KC_B )
-		{
-			if (item_in_hands != NULL && item_in_hands.OpcaoDeAgarrar())
-			{
-				if (item_in_hands.EncaixeVertical() || item_in_hands.EncaixeHorizontal() || item_in_hands.EncaixeVerticalPilares() || item_in_hands.EncaixeHorizontalFundacao && item_in_hands != NULL)
-				{	
-					AtivarEncaixe();
-					player.MensageSend();
-				}
-			}
-        }
-		if ( key == KeyCode.KC_K ) 
-		{
-			if (item_in_hands != NULL && item_in_hands.OpcaoDeAgarrar())
-			{
-				if (item_in_hands.EncaixeVertical() || item_in_hands.EncaixeHorizontal() || item_in_hands.EncaixeVerticalPilares() || item_in_hands.EncaixeHorizontalFundacao() && item_in_hands != NULL)
-				{	
-					SelecaoEncaixe();
-					SelecionarAlvoDeEncaixe();
-					player.MensageSendKeyK();
-				} 
-			}
-        }
-		if ( key == KeyCode.KC_F )
-		{
-			if (item_in_hands != NULL && item_in_hands.OpcaoDeAgarrar())
-			{
-				if (item_in_hands.EncaixeVertical())
-				{	
-					ProcurePontosEncaixeVertical();
-				}
-				if (item_in_hands.EncaixeHorizontal())
-				{	
-					ProcurePontosEncaixeHorizontal();
-				}
-				if (item_in_hands.EncaixeVerticalPilares())
-				{
-					ProcurePontosEncaixeVerticalPilares();
-				}
-				if (item_in_hands.EncaixeHorizontalFundacao())
-				{
-					ProcurePontosEncaixeHorizontalFundacao();
-				}
-			}
-		}
-		/* 
-			KC_SLASH  	= / 
-			KC_PERIOD 	= .
-			KC_J 	  	= j
-		*/
-		if ( key == KeyCode.KC_J ) 
-		{
-			if (item_in_hands.IsKindOf("EXD_BaseKit") || item_in_hands.GetType() == "FenceKit" || item_in_hands.GetType() == "WatchtowerKit" && item_in_hands != NULL)
-			{
-				MensageSend_R();
-			}
-        }
-    }
-
-	override void OnUpdate(float timeslice)
-	{
-		super.OnUpdate(timeslice);
-
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
-		ItemBase item_in_hands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
-		if (EncaixeAtivadoEscaneando)
-		{
-			if (item_in_hands != NULL && item_in_hands.OpcaoDeAgarrar())
-			{
-				if (item_in_hands.EncaixeVertical() || item_in_hands.EncaixeHorizontal() || item_in_hands.EncaixeVerticalPilares() || item_in_hands.EncaixeHorizontalFundacao() && item_in_hands != NULL)
-				{
-					if (SelecionarObjetoEncaixeNoAlcance().IsInherited(EXD_Base))
-					{
-						SelecaoEncaixe();
-					}
-				}
-			}
-		}
-	}
-}

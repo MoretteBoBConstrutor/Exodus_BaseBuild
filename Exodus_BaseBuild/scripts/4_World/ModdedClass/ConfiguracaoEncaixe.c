@@ -4,6 +4,7 @@ static int PontosEncaixeVertical = 0;
 static int PontosEncaixeHorizontal = 0;
 static int PontosEncaixeVerticalPilares = 0;
 static int PontosEncaixeHorizontalFundacao = 0;
+static int PontosEncaixeHorizontalDelta = 0;
 //Ativa o Encaie e Seleciona o Alvo do encaixe
 static bool EncaixeAtivado = true;
 static bool EncaixeAtivadoEscaneando = true;
@@ -12,6 +13,7 @@ static const int PontosMaximosEncaixeVertical = 7;
 static const int PontosMaximosEncaixeHorizontal = 3;
 static const int PontosMaximosEncaixeVerticalPilares = 4;
 static const int PontosMaximosEncaixeHorizontalFundacao = 8;
+static const int PontosMaximosEncaixeHorizontalDelta = 3;
 
 
 static void ProcurePontosEncaixeVertical()
@@ -44,6 +46,14 @@ static void ProcurePontosEncaixeHorizontalFundacao()
 	if(PontosEncaixeHorizontalFundacao > PontosMaximosEncaixeHorizontalFundacao)
 	{
 		PontosEncaixeHorizontalFundacao = 0;
+	}
+}
+static void ProcurePontosEncaixeHorizontalDelta()
+{
+	PontosEncaixeHorizontalDelta = PontosEncaixeHorizontalDelta + 1;
+	if(PontosEncaixeHorizontalDelta > PontosMaximosEncaixeHorizontalDelta)
+	{
+		PontosEncaixeHorizontalDelta = 0;
 	}
 }
 

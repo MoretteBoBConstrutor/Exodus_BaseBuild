@@ -4,6 +4,7 @@ class EXD_BB_Kit_Roof_Delta extends EXD_BaseKit
 	void EXD_BB_Kit_Roof_Delta()
 	{
 		DefineEncaixeHotizontal(true);
+		//DefineEncaixeHorizontalDelta(true)
 	}
 	
 	override string RequiredHologram()
