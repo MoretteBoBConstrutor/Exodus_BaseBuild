@@ -4,11 +4,11 @@ Lista
 - Door Double -->   [OK]    [Kit OK]
 - Floor -->         [OK]    [Kit OK]   [Camonet OK]    [T2 OK]
 - Floor D -->       [OK]    [Kit OK] 
-- Floor H -->       [OK]    [Kit OK]
-- Foundation -->    [OK]    [Kit OK]
+- Floor H -->       [OK]    [Kit OK] 
+- Foundation -->    [OK]    [Kit OK] 
 - Foundation D 
 - Gate
-- Gate Ramp -->     [OK]    [Kit OK]
+- Gate Ramp -->     [OK]    [Kit OK] 
 - Ramp
 - Pillar -->        [OK]    [Kit OK]
 - Roof -->          [OK]    [Kit OK]   [Camonet OK]    [T2 OK]
