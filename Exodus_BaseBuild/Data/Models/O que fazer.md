@@ -31,7 +31,7 @@ Lista
 |EXD_Wall_Window |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Floor       |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Floor_Delta |  ✅  |     ❌    | ✅ | ✅ | ❌|
-|EXD_Floor_Hatch |  ✅  |     ❌    | ✅ | ❌ | ❌|
+|EXD_Floor_Hatch |  ✅  |     ➖    | ✅ | ❌ | ❌|
 |EXD_Door        |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Double_Door |  ✅  |     ❌    | ✅ | ✅ | ❌|
 |EXD_Gate_Ramp   |  ✅  |     ❌    | ✅ | ✅ | ❌|
