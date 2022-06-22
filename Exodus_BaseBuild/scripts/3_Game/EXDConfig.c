@@ -9,10 +9,12 @@ class ExodusConfig
 	private bool CanDestroyConstructions;
 	private bool CanDismnatleConstructions;
 	private bool CanCraftConstructionsKits;
+	private bool CanCraftWorkbench;
 	private bool CanCraftCVanillarFenceKit;
 	private bool CanCraftCVanillarWatchTowerKit;
 	private bool CanCutComboLock;
 	private bool CanRaidOnlyDoors;
+	private bool CanReturnKitFromConstruct;
 	//Ferramentas de Raid
 	private ref array<string> BuildTools;
 	private ref array<string> DismantleTools; 
@@ -28,6 +30,7 @@ class ExodusConfig
 	private int DestroyTimeT3;
 	//Loop para detruiçao
 	private int LoopToDestructT1;
+	private int LoopToDestructT2;
 	//Danos a Ferramentas
 	private int BuildToolDamage;
 	private int DismantleToolDamage;
@@ -75,10 +78,12 @@ class ExodusConfig
     {
 		CanDestroyConstructions 	   = true;
 		CanDismnatleConstructions      = true;
-		CanCraftConstructionsKits      = true;
+		CanCraftWorkbench			   = false;
+		CanCraftConstructionsKits      = false;
 		CanCraftCVanillarFenceKit      = false;
 		CanCraftCVanillarWatchTowerKit = false;
 		CanRaidOnlyDoors			   = false;
+		CanReturnKitFromConstruct	   = true;
 
 		BuildTools  	   = {"Hatchet", "Hammer"};
 		DismantleTools	   = {"Hatchet", "Crowbar"};
@@ -87,18 +92,19 @@ class ExodusConfig
 		RaidToolsT3 	   = { "SledgeHammer" };
 
 		BuildTime 	  	   = 10;
-		DismantleTime 	   = 30;
-		DestroyTimeDefault = 10;
+		DismantleTime 	   = 15;
+		DestroyTimeDefault = 150;
 		LoopToDestructT1   = 4;
-		DestroyTimeT1 	   = 10;
-		DestroyTimeT2 	   = 900;
-		DestroyTimeT3 	   = 1800;
+		LoopToDestructT2   = 4;
+		DestroyTimeT1 	   = 150;
+		DestroyTimeT2 	   = 225;
+		DestroyTimeT3 	   = 300;
 
 		BuildToolDamage     = 5;
 		DismantleToolDamage = 5;
-		RaidToolDamageT1    = 50;
-		RaidToolDamageT2    = 100;
-		RaidToolDamageT3    = 1000;
+		RaidToolDamageT1    = 15;
+		RaidToolDamageT2    = 25;
+		RaidToolDamageT3    = 125;
 
 		Save();
 	}
@@ -110,6 +116,10 @@ class ExodusConfig
 	bool Get_CanDismnatleConstructions()
 	{
 		return CanDismnatleConstructions;
+	}
+	bool Get_CanCraftWorkbench()
+	{
+		return CanCraftWorkbench;
 	}
 	bool Get_CanCraftConstructionsKits()
 	{
@@ -126,6 +136,10 @@ class ExodusConfig
 	bool Get_CanRaidOnlyDoors()
 	{
 		return CanRaidOnlyDoors;
+	}
+	bool Get_CanReturnKitFromConstruct()
+	{
+		return CanReturnKitFromConstruct;
 	}
 	//Ferramentas para ações
 	ref array<string> Get_BuildTools()
@@ -173,6 +187,10 @@ class ExodusConfig
 	int Get_LoopToDestructT1()
 	{
 		return LoopToDestructT1;
+	}
+	int Get_LoopToDestructT2()
+	{
+		return LoopToDestructT2;
 	}
 	//Tempos para ações
 	int Get_BuildTime()

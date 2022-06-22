@@ -36,7 +36,7 @@ class CfgVehicles
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "wall_build";
 			};
@@ -126,21 +126,15 @@ class CfgVehicles
 				    {
 				    	class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 2;
-						};
-						class Material2
-						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 20;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
 						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 36;
+							quantity = 10;
 						};
 				    };
 				};
@@ -253,7 +247,7 @@ class CfgVehicles
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "wall_build";
 			};
@@ -347,21 +341,15 @@ class CfgVehicles
 				    {
 				    	class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 2;
-						};
-						class Material2
-						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 10;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
 						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 18;
+							quantity = 10;
 						};
 				    };
 				};
@@ -404,17 +392,17 @@ class CfgVehicles
 					material_type = 2;
 					class Materials
 				    {
-						class Material1
+				    	class Material1
 						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 10;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 2;
 						};
-						class Material2
+						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 18;
+							quantity = 10;
 						};
 				    };
 				};
@@ -627,7 +615,7 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet"};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet","Material_MetalSheets"};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
@@ -644,7 +632,7 @@ class CfgVehicles
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "floor_build";
 			};
@@ -728,21 +716,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 2;
-						};
-						class Material2
-						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 20;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
 						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 36;
+							quantity = 10;
 						};
 					};
 				};
@@ -845,7 +827,7 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet"};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet","Material_MetalSheets"};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
@@ -862,7 +844,7 @@ class CfgVehicles
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "floor_build";
 			};
@@ -947,21 +929,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 2;
-						};
-						class Material2
-						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 20;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
 						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 36;
+							quantity = 10;
 						};
 					};
 				};
@@ -1064,7 +1040,7 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Att_CombinationLock","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		attachments[] = {"Att_CombinationLock","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
@@ -1081,7 +1057,7 @@ class CfgVehicles
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "floor_build";
 			};
@@ -1112,6 +1088,11 @@ class CfgVehicles
 			class Exd_floorh_door1_t1_Rotate: AnimRotate{};
 			class Exd_floorh_door2_t1: AnimSourceHidden{};
 			class Exd_floorh_door2_t1_Rotate: AnimRotate{};
+			class Exd_floorh_t2: AnimSourceHidden{};
+			class Exd_floorh_door1_t2: AnimSourceHidden{};
+			class Exd_floorh_door1_t2_Rotate: AnimRotate{};
+			class Exd_floorh_door2_t2: AnimSourceHidden{};
+			class Exd_floorh_door2_t2_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
 			class Exd_floorh_stair_t1: AnimSourceHidden{};
@@ -1154,6 +1135,33 @@ class CfgVehicles
 					};
 					
 				};
+				class exd_floorh_t2
+				{
+					name = "Floor | T2 |";
+					id = 6;
+					required_parts[] = {"exd_floorh_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 10;
+						};
+					};
+					
+				};
 				class exd_floorh_door1_t1
 				{
 					name = "Door P1 | T1 |";
@@ -1181,10 +1189,36 @@ class CfgVehicles
 						};
 					};
 				};
+				class exd_floorh_door1_t2
+				{
+					name = "Door P1 | T2 |";
+					id = 7;
+					required_parts[] = {"exd_floorh_t2","exd_floorh_door1_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 3;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 10;
+						};
+					};
+				};
 				class exd_floorh_door2_t1
 				{
 					name = "Door P2 | T1 |";
-					is_gate = 1;
+					//is_gate = 1;
 					id = 4;
 					required_parts[] = {"exd_floorh_door1_t1"};
 					conflicted_parts[] = {};
@@ -1205,6 +1239,32 @@ class CfgVehicles
 							type = "Nail";
 							slot_name = "Material_Nails";
 							quantity = 8;
+						};
+					};
+				};
+				class exd_floorh_door2_t2
+				{
+					name = "Door P2 | T2 |";
+					id = 8;
+					required_parts[] = {"exd_floorh_door1_t2","exd_floorh_door2_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 3;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 10;
 						};
 					};
 				};
@@ -1285,6 +1345,34 @@ class CfgVehicles
 					componentNames[]=	 {"exd_floorh_t1"};
 					fatalInjuryCoef=-1;
 				};
+				class exd_floorh_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_t2"};
+					fatalInjuryCoef=-1;
+				};
 				class exd_floorh_door1_t1
 				{
 					class Health
@@ -1313,6 +1401,34 @@ class CfgVehicles
 					componentNames[]=	 {"exd_floorh_door1_t1"};
 					fatalInjuryCoef=-1;
 				};
+				class exd_floorh_door1_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_door1_t2"};
+					fatalInjuryCoef=-1;
+				};
 				class exd_floorh_door2_t1
 				{
 					class Health
@@ -1339,6 +1455,34 @@ class CfgVehicles
 						};
 					};
 					componentNames[]=	 {"exd_floorh_door2_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_floorh_door2_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_door2_t2"};
 					fatalInjuryCoef=-1;
 				};
 				class exd_floorh_stair_t1
@@ -1404,7 +1548,7 @@ class CfgVehicles
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "door_build";
 			};
@@ -1528,15 +1672,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenPlank";//metalplate
-							slot_name = "Material_WoodenPlanks";
-							quantity = 10;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 3;
 						};
-						class Material2
+						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 18;
+							quantity = 10;
 						};
 					};
 				};
@@ -1554,21 +1698,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 2;
-						};
-						class Material2
-						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 10;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
 						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 18;
+							quantity = 10;
 						};
 					};
 				};
@@ -1730,11 +1868,19 @@ class CfgVehicles
 				icon = "cat_bb_attachments";
 				selection = "door_build";
 			};
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "door_build";
+			};
 			class Materials
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "door_build";
 			};
@@ -1779,6 +1925,11 @@ class CfgVehicles
 			class Exd_d_d_r_t2_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
+			class WallCamonet: AnimSourceHidden{};
+			class GateCamonet: AnimSourceHidden{};
+			class GateCamonet_Rotate: AnimRotate{};
+			class GateCamonet2: AnimSourceHidden{};
+			class GateCamonet2_Rotate: AnimRotate{};
 		};
 		class Construction
 		{
@@ -1832,21 +1983,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 2;
-						};
-						class Material2
-						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 10;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
 						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 18;
+							quantity = 10;
 						};
 					};
 					
@@ -1920,15 +2065,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 5;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 3;
 						};
-						class Material2
+						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 9;
+							quantity = 10;
 						};
 					};
 					
@@ -1947,15 +2092,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 5;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 3;
 						};
-						class Material2
+						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 9;
+							quantity = 10;
 						};
 					};
 				};
@@ -2173,11 +2318,19 @@ class CfgVehicles
 				icon = "cat_bb_attachments";
 				selection = "door_build";
 			};
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "door_build";
+			};
 			class Materials
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "door_build";
 			};
@@ -2217,6 +2370,8 @@ class CfgVehicles
 			class Exd_door_t2_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
+			class GateCamonet: AnimSourceHidden{};
+			class GateCamonet_Rotate: AnimRotate{};
 		};
 		class Construction
 		{
@@ -2297,15 +2452,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 10;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
-						class Material2
+						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 18;
+							quantity = 10;
 						};
 					};
 				};
@@ -2436,7 +2591,7 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		attachments[] = {"Wall_Camonet","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 		class GUIInventoryAttachmentsProps
 		{
 			class Camonet
@@ -2451,7 +2606,7 @@ class CfgVehicles
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "roof_build";
 			};
@@ -2541,21 +2696,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 2;
-						};
-						class Material2
-						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 20;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
 						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 36;
+							quantity = 10;
 						};
 					};
 				};
@@ -2658,7 +2807,7 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet"};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Wall_Camonet","Material_MetalSheets"};
 		class GUIInventoryAttachmentsProps
 		{
 			class Camonet
@@ -2673,7 +2822,7 @@ class CfgVehicles
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "roof_build";
 			};
@@ -2708,6 +2857,7 @@ class CfgVehicles
 			class Deployed: AnimSourceHidden{};
 			class Hologram: AnimSourceHidden{};
 			class Exd_roof_d_t1: AnimSourceHidden{};
+			class Exd_roof_d_t2: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
 			class WallCamonet: AnimSourceHidden{};
 		};
@@ -2745,6 +2895,32 @@ class CfgVehicles
 							type = "Nail";
 							slot_name = "Material_Nails";
 							quantity = 36;
+						};
+					};
+				};
+				class exd_roof_d_t2
+				{
+					name = "Delta Roof | T2 |";
+					id = 2;
+					required_parts[] = {"exd_roof_d_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 10;
 						};
 					};
 				};
@@ -2799,6 +2975,34 @@ class CfgVehicles
 					componentNames[]=	 {"exd_roof_d_t1"};
 					fatalInjuryCoef=-1;
 				};
+				class exd_roof_d_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_roof_d_t2"};
+					fatalInjuryCoef=-1;
+				};
 			};
 		};
 	};
@@ -2819,7 +3023,7 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Att_CombinationLock","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		attachments[] = {"Att_CombinationLock","Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets","Wall_Camonet"};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
@@ -2832,11 +3036,19 @@ class CfgVehicles
 				icon = "cat_bb_attachments";
 				selection = "floor_build";
 			};
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "floor_build";
+			};
 			class Materials
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "floor_build";
 			};
@@ -2867,6 +3079,11 @@ class CfgVehicles
 			class Exd_floorh_door1_t1_Rotate: AnimRotate{};
 			class Exd_floorh_door2_t1: AnimSourceHidden{};
 			class Exd_floorh_door2_t1_Rotate: AnimRotate{};
+			class Exd_floorh_t2: AnimSourceHidden{};
+			class Exd_floorh_door1_t2: AnimSourceHidden{};
+			class Exd_floorh_door1_t2_Rotate: AnimRotate{};
+			class Exd_floorh_door2_t2: AnimSourceHidden{};
+			class Exd_floorh_door2_t2_Rotate: AnimRotate{};
 			class Wall_Interact_Rotate: AnimRotate{};
 			class Build_holo: AnimSourceHidden{};
 			class Exd_floorh_stair_t1: AnimSourceHidden{};
@@ -2909,6 +3126,33 @@ class CfgVehicles
 					};
 					
 				};
+				class exd_floorh_t2
+				{
+					name = "Roof | T2 |";
+					id = 6;
+					required_parts[] = {"exd_floorh_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 10;
+						};
+					};
+					
+				};
 				class exd_floorh_door1_t1
 				{
 					name = "Door P1 | T1 |";
@@ -2936,6 +3180,32 @@ class CfgVehicles
 						};
 					};
 				};
+				class exd_floorh_door1_t2
+				{
+					name = "Door P1 | T2 |";
+					id = 7;
+					required_parts[] = {"exd_floorh_t2","exd_floorh_door1_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 3;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 10;
+						};
+					};
+				};
 				class exd_floorh_door2_t1
 				{
 					name = "Door P2 | T1 |";
@@ -2960,6 +3230,32 @@ class CfgVehicles
 							type = "Nail";
 							slot_name = "Material_Nails";
 							quantity = 8;
+						};
+					};
+				};
+				class exd_floorh_door2_t2
+				{
+					name = "Door P2 | T2 |";
+					id = 8;
+					required_parts[] = {"exd_floorh_door1_t2","exd_floorh_door2_t1"};
+					conflicted_parts[] = {};
+					collision_data[] = {};
+					build_action_type = 2;
+					dismantle_action_type = 2;
+					material_type = 2;
+					class Materials
+					{
+						class Material1
+						{
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 3;
+						};
+						class Material3
+						{
+							type = "Nail";
+							slot_name = "Material_Nails";
+							quantity = 10;
 						};
 					};
 				};
@@ -3040,6 +3336,34 @@ class CfgVehicles
 					componentNames[]=	 {"exd_floorh_t1"};
 					fatalInjuryCoef=-1;
 				};
+				class exd_floorh_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_t2"};
+					fatalInjuryCoef=-1;
+				};
 				class exd_floorh_door1_t1
 				{
 					class Health
@@ -3068,6 +3392,34 @@ class CfgVehicles
 					componentNames[]=	 {"exd_floorh_door1_t1"};
 					fatalInjuryCoef=-1;
 				};
+				class exd_floorh_door1_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_door1_t2"};
+					fatalInjuryCoef=-1;
+				};
 				class exd_floorh_door2_t1
 				{
 					class Health
@@ -3094,6 +3446,34 @@ class CfgVehicles
 						};
 					};
 					componentNames[]=	 {"exd_floorh_door2_t1"};
+					fatalInjuryCoef=-1;
+				};
+				class exd_floorh_door2_t2
+				{
+					class Health
+					{
+						hitpoints=100;
+						healthLevels[]=	 {{1.01,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.01,{}}};
+					};
+					class ArmorType
+					{
+						class Projectile{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class Melee{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+						class FragGrenade{
+							class Health {damage=0;};
+							class Blood  {damage=0;};
+							class Shock	 {damage=0;};
+						};
+					};
+					componentNames[]=	 {"exd_floorh_door2_t2"};
 					fatalInjuryCoef=-1;
 				};
 				class exd_floorh_stair_t1
@@ -3404,16 +3784,24 @@ class CfgVehicles
 		createProxyPhysicsOnInit = "false";
 		createdProxiesOnInit[] = {"Deployed","Hologram"};
 		rotationFlags = 2;
-		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+		attachments[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets","Wall_Camonet"};
 		hybridAttachments[] = {};
 		mountables[] = {};
 		class GUIInventoryAttachmentsProps
 		{
+			class Camonet
+			{
+				name = "Camo Net";
+				description = "";
+				attachmentSlots[] = {"Wall_Camonet"};
+				icon = "cat_bb_attachments";
+				selection = "foundation_build";
+			};
 			class Materials
 			{
 				name = "Materials";
 				description = "";
-				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks"};
+				attachmentSlots[] = {"Material_Nails","Material_L1_WoodenLogs","Material_WoodenPlanks","Material_MetalSheets"};
 				icon = "cat_bb_material";
 				selection = "foundation_build";
 			};
@@ -3444,6 +3832,7 @@ class CfgVehicles
 			class Exd_foundation_t1: AnimSourceHidden{};
 			class Exd_foundation_t2: AnimSourceHidden{};
 			class Build_holo: AnimSourceHidden{};
+			class WallCamonet: AnimSourceHidden{};
 		};
 		class Construction
 		{
@@ -3496,21 +3885,15 @@ class CfgVehicles
 					{
 						class Material1
 						{
-							type = "WoodenLog";
-							slot_name = "Material_L1_WoodenLogs";
-							quantity = 2;
-						};
-						class Material2
-						{
-							type = "WoodenPlank";
-							slot_name = "Material_WoodenPlanks";
-							quantity = 20;
+							type = "MetalPlate";
+							slot_name = "Material_MetalSheets";
+							quantity = 6;
 						};
 						class Material3
 						{
 							type = "Nail";
 							slot_name = "Material_Nails";
-							quantity = 36;
+							quantity = 10;
 						};
 					};
 				};

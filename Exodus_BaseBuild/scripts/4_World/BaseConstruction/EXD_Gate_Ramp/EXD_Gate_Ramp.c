@@ -35,6 +35,7 @@ class EXD_Gate_Ramp extends EXD_Base
 			SetAnimationPhase( "Wall_Interact_Rotate", 				value );
 			SetAnimationPhase( "Exd_door_t1_Rotate", 				value );
 			SetAnimationPhase( "Exd_door_t2_Rotate", 				value );
+			SetAnimationPhase( "GateCamonet_Rotate", 				value );
 			
 			SetOpenedState( true );
 			
@@ -62,6 +63,7 @@ class EXD_Gate_Ramp extends EXD_Base
 			SetAnimationPhase( "Wall_Interact_Rotate", 				value );
 			SetAnimationPhase( "Exd_door_t1_Rotate", 				value );
 			SetAnimationPhase( "Exd_door_t2_Rotate", 				value );
+			SetAnimationPhase( "GateCamonet_Rotate", 				value );
 
 			SetOpenedState( false );
 			

@@ -282,6 +282,7 @@ modded class ActionDestroyPart: ActionContinuousBase
 		int raidToolDamageT3 = g_Game.GetExodusConfig().Get_RaidToolDamageT3();
 		//Loopes para Zonas, Cada Loop necessario é o tempo definido no .json
 		int DamageZoneLoopT1 = g_Game.GetExodusConfig().Get_LoopToDestructT1();
+		int DamageZoneLoopT2 = g_Game.GetExodusConfig().Get_LoopToDestructT2();
 		string Picture = "set:dayz_inventory image:paper";
 
 		if ( construction.CanDestroyPart( construction_part.GetPartName() ) )
@@ -312,7 +313,7 @@ modded class ActionDestroyPart: ActionContinuousBase
 			{
 				if (zone_name != "")
 				{
-					base_building.AddHealth(zone_name,"Health",-(base_building.GetMaxHealth(zone_name,"")/DamageZoneLoopT1));
+					base_building.AddHealth(zone_name,"Health",-(base_building.GetMaxHealth(zone_name,"")/DamageZoneLoopT2));
 
 					//Print("Dano Adicionado" + " "+ action_data.m_MainItem.GetDisplayName() +" "+ action_data.m_Player.GetIdentity().GetName() + " " + action_data.m_Player.GetPosition()); GetId()
 

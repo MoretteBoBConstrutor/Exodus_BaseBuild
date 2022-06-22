@@ -18,5 +18,6 @@ modded class PluginRecipesManager
 		RegisterRecipe(new CraftExodusFoundation);
 		RegisterRecipe(new CraftExodusGateRamp);
 		RegisterRecipe(new CraftExodusRoofHatch);
+		RegisterRecipe(new CraftExodusWorkbench);
 	}
 }

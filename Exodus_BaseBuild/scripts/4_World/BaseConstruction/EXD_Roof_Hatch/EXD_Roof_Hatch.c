@@ -19,6 +19,17 @@ class EXD_Roof_Hatch extends EXD_Base
 	{
 		return true;
 	}
+
+	override bool NameOverride(out string output)
+	{
+		if ( m_GateState != GATE_STATE_NONE )
+		{
+			output = "Hatch";
+			output.ToUpper();
+			return true;
+		}
+		return false;
+	}
 	
 	override bool DistanceNormalPart( string selection, PlayerBase player )
 	{
@@ -71,7 +82,9 @@ class EXD_Roof_Hatch extends EXD_Base
 			float value = GATE_ROTATION_ANGLE_DEG;
 			SetAnimationPhase( "Exd_floorh_door1_t1_Rotate", 				value );
 			SetAnimationPhase( "Exd_floorh_door2_t1_Rotate", 				value );
-			SetAnimationPhase( "Wall_Interact_Rotate", 				value );
+			SetAnimationPhase( "Exd_floorh_door1_t2_Rotate", 				value );
+			SetAnimationPhase( "Exd_floorh_door2_t2_Rotate", 				value );
+			SetAnimationPhase( "Wall_Interact_Rotate", 						value );
 			
 			SetOpenedState( true );
 			
@@ -98,7 +111,9 @@ class EXD_Roof_Hatch extends EXD_Base
 			float value = 0;
 			SetAnimationPhase( "Exd_floorh_door1_t1_Rotate", 				value );
 			SetAnimationPhase( "Exd_floorh_door2_t1_Rotate", 				value );
-			SetAnimationPhase( "Wall_Interact_Rotate", 				value );
+			SetAnimationPhase( "Exd_floorh_door1_t2_Rotate", 				value );
+			SetAnimationPhase( "Exd_floorh_door2_t2_Rotate", 				value );
+			SetAnimationPhase( "Wall_Interact_Rotate", 						value );
 			
 			SetOpenedState( false );
 			
@@ -122,7 +137,7 @@ class EXD_Roof_Hatch extends EXD_Base
 	
 	protected void CheckFenceClosed()
 	{
-		if ( GetAnimationPhase( "Wall_Gate_Rotate" ) == 0 )			//animation finished - closed
+		if ( GetAnimationPhase( "Exd_floorh_door1_t1_Rotate" ) == 0 )			//animation finished - closed
 		{
 			//client or single player
 			if ( !GetGame().IsDedicatedServer() )
@@ -130,7 +145,7 @@ class EXD_Roof_Hatch extends EXD_Base
 				//play sound
 				if ( this ) SoundGateCloseEnd();
 			}
-			UpdateBarbedWireAreaDamagePos(GetAnimationPhase( "Wall_Gate_Rotate" ));
+			UpdateBarbedWireAreaDamagePos(GetAnimationPhase( "Exd_floorh_door1_t1_Rotate" ));
 			//remove check
 			GetGame().GetCallQueue( CALL_CATEGORY_GAMEPLAY ).Remove( CheckFenceClosed );
 		}

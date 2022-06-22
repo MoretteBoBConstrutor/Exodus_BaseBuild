@@ -199,20 +199,23 @@ class EXD_Base extends Fence
 			{	
 				if(HasFullyConstructedGate())
 				{
-					SetAnimationPhase( "GateCamonet", 0 );
-					SetAnimationPhase( "WallCamonet", 0 );
+					SetAnimationPhase( "GateCamonet", 	0 );
+					SetAnimationPhase( "WallCamonet", 	0 );
+					SetAnimationPhase( "GateCamonet2", 	0 );
 				}
 				else if(!HasFullyConstructedGate())
 				{
-					SetAnimationPhase( "WallCamonet", 0 );
-					SetAnimationPhase( "GateCamonet", 1 );
+					SetAnimationPhase( "WallCamonet", 	0 );
+					SetAnimationPhase( "GateCamonet", 	1 );
+					SetAnimationPhase( "GateCamonet2", 	1 );
 				}
 			}
 		}
 		if (IsCamonet() == false)
 		{
-			SetAnimationPhase( "GateCamonet", 1 );
-			SetAnimationPhase( "WallCamonet", 1 );
+			SetAnimationPhase( "GateCamonet",  	1 );
+			SetAnimationPhase( "GateCamonet2", 	1 );
+			SetAnimationPhase( "WallCamonet",  	1 );
 		}
 
 		/* if (IsCamonetExodus() == true)
@@ -269,7 +272,11 @@ class EXD_Base extends Fence
 		{
 			SetBaseState( true );
 			SetAnimationPhase( "Hologram", 		1 );
-			CreateConstructionKit();
+			if ( g_Game.GetExodusConfig().Get_CanReturnKitFromConstruct() )
+			{
+				CreateConstructionKit();
+			}
+			//CreateConstructionKit();
 		}
 
 		if( GatePartConstruct() )

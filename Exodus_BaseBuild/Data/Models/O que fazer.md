@@ -30,18 +30,18 @@ Lista
 |EXD_Wall        |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Wall_Window |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Floor       |  ✅  |     ✅    | ✅ | ✅ | ❌|
-|EXD_Floor_Delta |  ✅  |     ❌    | ✅ | ✅ | ❌|
-|EXD_Floor_Hatch |  ✅  |     ➖    | ✅ | ❌ | ❌|
+|EXD_Floor_Delta |  ✅  |     ✅    | ✅ | ✅ | ❌|
+|EXD_Floor_Hatch |  ✅  |     ➖    | ✅ | ✅ | ❌|
 |EXD_Door        |  ✅  |     ✅    | ✅ | ✅ | ❌|
-|EXD_Double_Door |  ✅  |     ❌    | ✅ | ✅ | ❌|
-|EXD_Gate_Ramp   |  ✅  |     ❌    | ✅ | ✅ | ❌|
+|EXD_Double_Door |  ✅  |     ✅    | ✅ | ✅ | ❌|
+|EXD_Gate_Ramp   |  ✅  |     ✅    | ✅ | ✅ | ❌|
 |EXD_Roof        |  ✅  |     ✅    | ✅ | ✅ | ❌|
-|EXD_Roof_Delta  |  ✅  |     ✅    | ✅ | ❌ | ❌|
-|EXD_Roof_Hatch  |  ✅  |     ❌    | ✅ | ❌ | ❌|
+|EXD_Roof_Delta  |  ✅  |     ✅    | ✅ | ✅ | ❌|
+|EXD_Roof_Hatch  |  ✅  |     ❌    | ✅ | ✅ | ❌|
 |EXD_Stair_Mini  |  ✅  |     ➖    | ✅ | ➖ | ➖|
 |EXD_Stair_L     |  ✅  |     ➖    | ✅ | ➖ | ➖|
 |EXD_Pillar      |  ✅  |     ➖    | ✅ | ➖ | ➖|
-|EXD_Foundation  |  ✅  |     ❌    | ✅ | ✅ | ❌|
+|EXD_Foundation  |  ✅  |     ✅    | ✅ | ✅ | ❌|
 
 | RoadWay | Sound |
 | ----------------- | ------------------------------------------------- |

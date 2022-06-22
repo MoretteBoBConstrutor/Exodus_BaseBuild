@@ -37,6 +37,8 @@ class EXD_Double_Door extends EXD_Base
 			SetAnimationPhase( "Exd_d_d_r_Rotate", 					value );
 			SetAnimationPhase( "Exd_d_d_l_t2_Rotate", 				value );
 			SetAnimationPhase( "Exd_d_d_r_t2_Rotate", 				value );
+			SetAnimationPhase( "GateCamonet_Rotate", 				value );
+			SetAnimationPhase( "GateCamonet2_Rotate", 				value );
 			
 			SetOpenedState( true );
 			
@@ -66,6 +68,8 @@ class EXD_Double_Door extends EXD_Base
 			SetAnimationPhase( "Exd_d_d_r_Rotate", 					value );
 			SetAnimationPhase( "Exd_d_d_l_t2_Rotate", 				value );
 			SetAnimationPhase( "Exd_d_d_r_t2_Rotate", 				value );
+			SetAnimationPhase( "GateCamonet_Rotate", 				value );
+			SetAnimationPhase( "GateCamonet2_Rotate", 				value );
 			
 			SetOpenedState( false );
 			
